@@ -1,9 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
 import Plot from "./Plot";
+import TVComparison from './TVComparison';
 import { ANNUAL, group, loadData, median } from "./data";
-import { BANDS, TECHNOLOGIES, TECHNOLOGY_COLORS, catalogueSummary, technologyEnergy, lowestEnergyRegistrations } from "./analysis";
+import { BANDS, TECHNOLOGIES, TECHNOLOGY_COLORS, catalogueSummary, technologyEnergy } from "./analysis";
 
-const COLORS = ["#1463ff", "#0ea5e9", "#2563eb", "#60a5fa", "#1d4ed8"];
+const CHART_BLUE = "#3b82c4";
 const SYMBOLS = { "LCD (LED)": "circle", LCD: "square", OLED: "diamond" };
 const SIZE_OPTIONS = [["", "Any size"], ...BANDS.map((band) => [band, band.replace(/^\d\. /, "")])];
 const STAR_OPTIONS = [[1, "Any rating"], [4, "4+ stars"], [5, "5+ stars"], [6, "6+ stars"], [7, "7+ stars"]];
@@ -71,7 +72,7 @@ function bandSpec(rows) {
       x: active.map((band) => band.replace(/^\d\. /, "")),
       y: active.map((band) => median(groups[band].map((row) => row[ANNUAL]))),
       customdata: active.map((band) => groups[band].length),
-      marker: { color: COLORS[0] },
+      marker: { color: CHART_BLUE },
       texttemplate: "%{y:.0f}",
       textposition: "outside",
       cliponaxis: false,
@@ -98,7 +99,7 @@ function brandSpec(rows) {
       x: brands.map((brand) => brand.energy),
       y: brands.map((brand) => brand.brand),
       customdata: brands.map((brand) => brand.count),
-      marker: { color: brands.map((brand) => brand.energy), colorscale: [[0, COLORS[0]], [1, COLORS[1]]], showscale: false },
+      marker: { color: brands.map((brand) => brand.energy), colorscale: [[0, CHART_BLUE], [1, '#0ea5e9']], showscale: false },
       hovertemplate: "%{y}<br>Median %{x:.0f} kWh/year<br>%{customdata:,} registration records<extra></extra>",
     }],
     layout: layout({
@@ -119,7 +120,7 @@ function standbySpec(rows, standby) {
       type: "histogram",
       x: values,
       nbinsx: 24,
-      marker: { color: COLORS[1], line: { color: "#ffffff", width: 1 } },
+      marker: { color: '#0ea5e9', line: { color: "#ffffff", width: 1 } },
       hovertemplate: "%{x:.2f} W<br>%{y:,} registration records<extra></extra>",
     }],
     layout: layout({
@@ -138,7 +139,7 @@ function catalogueSizeSpec(rows) {
       x: bands.map(item => item.band.replace(/^\d\. /, '')),
       y: bands.map(item => item.count),
       customdata: bands.map(item => rows.length ? item.count / rows.length * 100 : 0),
-      marker: { color: COLORS[0] },
+      marker: { color: CHART_BLUE },
       texttemplate: '%{customdata:.1f}%', textposition: 'outside', cliponaxis: false,
       hovertemplate: '%{x}<br>%{y:,} registrations<br>%{customdata:.1f}% of filtered records<extra></extra>',
     }],
@@ -237,28 +238,6 @@ function Kpis({ rows }) {
   );
 }
 
-function ModelComparison({ rows }) {
-  const visible = lowestEnergyRegistrations(rows);
-  const maximum = Math.max(...visible.map(row => row[ANNUAL]), 1);
-  return (
-    <section className="panel model-panel" id="models" aria-labelledby="models-title">
-      <div className="panel-heading">
-        <div><p className="chart-number">Analysis 08 · Model comparison</p><h2 id="models-title">Lowest annual energy: 10 registrations</h2></div>
-      </div>
-      {visible.length ? <>
-        <div className="comparison-scale" aria-hidden="true"><span>0 kWh/year</span><span>{number.format(maximum)} kWh/year</span></div>
-        <ol className="model-comparison">
-          {visible.map(row => <li key={`${row.Brand_Reg}-${row.Model_No}-${row['Registration Number']}`}>
-            <div className="model-identity"><strong>{row.Brand_Reg} <span>{row.Model_No}</span></strong><small>{number.format(row['Screen Size (inches)'])} in · {row.Screen_Tech} · {number.format(row.Star2)} stars · {row['Registration Number']}</small></div>
-            <div className="energy-track" aria-hidden="true"><span style={{ width: `${row[ANNUAL] / maximum * 100}%`, backgroundColor: TECHNOLOGY_COLORS[row.Screen_Tech] }} /></div>
-            <span className="model-energy">{number.format(row[ANNUAL])}<small>kWh/year</small></span>
-          </li>)}
-        </ol>
-      </> : <p className="chart-note">No registrations match these filters.</p>}
-      <p className="chart-note">{rows.length ? `${visible.length} of ${number.format(rows.length)} filtered registrations · lowest energy first. Screen size and star rating are shown for each TV.` : ''}</p>
-    </section>
-  );
-}
 
 function CatalogueContext({ rows }) {
   const summary = catalogueSummary(rows);
@@ -315,7 +294,7 @@ function Dashboard({ cleaned, standby }) {
         </div>
       </section>
     </section> : <section className="panel empty-state"><h2>No matching models</h2><p>Adjust or reset the filters to restore results.</p></section>}
-    <ModelComparison rows={rows} />
+    <TVComparison key={JSON.stringify(filters)} rows={rows} />
   </div>;
 }
 
@@ -340,7 +319,7 @@ export default function App() {
     <header className="site-header dashboard-header">
       <div className="topbar">
         <a className="topbar-brand" href="#overview" aria-label="TV Energy home"><span className="brand-mark" aria-hidden="true">TV</span><span><strong>TV Energy</strong><small>Australian TV analysis</small></span></a>
-        <nav aria-label="Dashboard sections"><a href="#overview">Filters</a><a href="#catalogue">Catalogue</a><a href="#insights">Analysis</a><a href="#models">Compare TVs</a><a href="#methodology">Method</a></nav>
+        <nav aria-label="Dashboard sections"><a href="#overview">Filters</a><a href="#catalogue">Catalogue</a><a href="#insights">Analysis</a><a href="#models">Compare TVs</a></nav>
         <div className="snapshot-badge"><span aria-hidden="true" />Snapshot · 04 Oct 2026</div>
       </div>
       <div className="hero-grid">
@@ -361,13 +340,6 @@ export default function App() {
       {!data && !error && <section className="status-panel" aria-live="polite"><span className="spinner" aria-hidden="true" /><p>Loading television data…</p></section>}
       {error && <section className="status-panel error-panel" role="alert"><h2>Dashboard data could not be loaded</h2><p>{error}</p><button type="button" onClick={() => setRetry((value) => value + 1)}>Retry</button></section>}
       {data && <Dashboard {...data} />}
-      <section className="method" id="methodology" aria-labelledby="method-title">
-        <p className="section-label">Methodology</p>
-        <h2 id="method-title">Data preparation</h2>
-        <div><p>KNIME filters registrations to Australian products marked Available and unexpired on 04 Oct 2026. Brand names are standardized, screen sizes are converted from centimetres to inches, and invalid standby measurements are excluded from the standby analysis.</p>
-        <p>Size bands are defined for this analysis. Available refers to registration status; retailer stock is not included.</p>
-        <a href="https://www.energyrating.gov.au/" rel="noreferrer">View Australian Energy Rating program <span aria-hidden="true">↗</span></a></div>
-      </section>
     </main>
     <footer><p>Source: Australian Government Energy Rating registration database.</p></footer>
     </div>

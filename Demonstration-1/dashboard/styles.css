@@ -122,23 +122,29 @@ input[type="range"] { width: 100%; min-height: 44px; accent-color: var(--blue); 
 .catalogue-context h3 { margin: 0 0 .5rem; font-size: .95rem; }
 .catalogue-context p { margin-bottom: .6rem; color: #486581; font-size: .85rem; }
 .catalogue-context a { font-size: .8rem; }
-.comparison-scale { display: flex; justify-content: space-between; margin: 0 100px .5rem 296px; color: var(--muted); font-size: .72rem; }
-.model-comparison { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; }
-.model-comparison li { display: grid; grid-template-columns: 280px minmax(0, 1fr) 84px; gap: 1rem; align-items: center; padding: .8rem 0; border-bottom: 1px solid var(--border); }
-.model-identity { min-width: 0; }
-.model-identity strong { display: block; font-size: .85rem; overflow-wrap: anywhere; }
-.model-identity strong span { font-weight: 500; }
-.model-identity small { display: block; margin-top: .25rem; color: #486581; font-size: .73rem; }
-.energy-track { height: 16px; overflow: hidden; background: var(--surface-soft); border-radius: 4px; }
-.energy-track span { display: block; height: 100%; border-radius: 4px; }
-.model-energy { text-align: right; color: var(--blue-dark); font: 600 1rem 'Fira Code', monospace; font-variant-numeric: tabular-nums; }
-.model-energy small { display: block; color: #486581; font: 400 .67rem 'Fira Sans', sans-serif; }
+.comparison-size { display: grid; gap: .4rem; min-width: 230px; color: #486581; font-size: .85rem; }
+.tv-comparison { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin: 1.25rem 0; }
+.tv-card { display: flex; flex-direction: column; min-width: 0; padding: 1.2rem; border: 1px solid var(--border-strong); border-radius: var(--radius-md); background: var(--surface); }
+.tv-card-lowest { border-color: var(--blue); background: #f7faff; }
+.tv-card-heading { min-height: 85px; }
+.tv-card-heading h3 { margin: 0 0 .3rem; color: var(--blue-dark); font-size: 1.4rem; overflow-wrap: anywhere; }
+.tv-card-heading p { margin: 0; color: #486581; font-size: .9rem; overflow-wrap: anywhere; }
+.tv-card-energy { padding: 1rem 0; border-top: 1px solid var(--border); }
+.tv-card-badge { min-height: 40px; margin: 0 0 .75rem; padding: .5rem; color: #486581; font-size: .8rem; }
+.tv-card-lowest .tv-card-badge { color: var(--blue-strong); background: #e5efff; border-radius: 8px; font-weight: 600; }
+.tv-energy-label { margin-bottom: .4rem; color: #486581; font-size: .85rem; }
+.tv-card-energy > div { display: flex; flex-wrap: wrap; align-items: baseline; gap: .4rem; }
+.tv-card-energy strong { color: var(--blue); font-size: clamp(2rem, 4vw, 4rem); line-height: 1.1; font-variant-numeric: tabular-nums; letter-spacing: -.05em; }
+.tv-card-energy span { color: var(--blue-dark); font-weight: 600; font-size: .9rem; }
+.tv-card-facts { margin: 0 0 1rem; }
+.tv-card-facts > div { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .4rem; padding: .75rem 0; border-top: 1px solid var(--border); font-size: .85rem; }
+.tv-card-facts dt { color: #486581; }
+.tv-card-facts dd { margin: 0; color: var(--blue-dark); font-weight: 600; }
+.tv-card-choice { margin-top: auto; }
+.tv-card-choice summary { width: fit-content; min-height: 44px; padding: .65rem .8rem; color: var(--blue-strong); background: #fff; border: 1px solid var(--border-strong); border-radius: 8px; cursor: pointer; font-size: .85rem; font-weight: 600; }
+.tv-card-choice > div { display: grid; gap: .8rem; margin-top: .8rem; }
+.tv-card-choice label { display: grid; min-width: 0; gap: .4rem; font-size: .85rem; color: #486581; }
 
-.method { display: grid; grid-template-columns: minmax(210px, .55fr) minmax(0, 1.45fr); gap: .85rem 2.5rem; margin-top: 3rem; padding: clamp(1.5rem, 4vw, 3rem); color: #fff; background: linear-gradient(135deg, #0b2c5f, #1463ff); border-radius: var(--radius-lg); box-shadow: 0 18px 46px rgb(11 44 95 / 18%); }
-.method .section-label { grid-column: 1 / -1; margin-bottom: 0; color: #b9d8ff; }
-.method h2 { max-width: 13ch; margin: 0; font-size: clamp(1.8rem, 3vw, 3rem); }
-.method p { max-width: 68ch; margin-bottom: .7rem; color: #deebff; }
-.method a { width: fit-content; color: #fff; font-weight: 700; text-decoration-thickness: 2px; }
 .status-panel, .empty-state { display: grid; place-items: center; min-height: 14rem; padding: 2rem; border-radius: var(--radius-md); text-align: center; }
 .status-panel p, .empty-state p { margin-bottom: 0; color: var(--muted); }
 .error-panel h2 { color: var(--danger); }
@@ -164,8 +170,6 @@ footer p { margin: 0; }
   .site-header { padding-top: 1rem; }
   .hero-grid { grid-template-columns: 1fr; }
   .catalogue-context { grid-template-columns: 1fr; }
-  .model-comparison li { grid-template-columns: 210px minmax(0, 1fr) 70px; gap: .75rem; }
-  .comparison-scale { margin-left: 222px; margin-right: 82px; }
 }
 @media (max-width: 600px) {
   .brand-mark { width: 38px; height: 38px; }
@@ -189,11 +193,24 @@ footer p { margin: 0; }
   .chapter-heading > span { width: 44px; height: 44px; border-radius: 12px; }
   .panel-heading { display: block; min-height: auto; margin-bottom: .5rem; }
   .chart, .chart-large { height: 340px; }
-  .model-comparison li { grid-template-columns: minmax(0, 1fr) 70px; }
-  .model-identity { grid-column: 1 / -1; }
-  .comparison-scale { margin-left: 0; margin-right: 82px; }
-  .method { grid-template-columns: 1fr; padding: 1.4rem; }
-  .method h2 { max-width: 14ch; }
+  .model-panel .section-heading { gap: .5rem; margin-bottom: .5rem; }
+  .tv-comparison { grid-template-columns: 1fr; gap: .6rem; margin: .75rem 0; }
+  .tv-card { display: grid; grid-template-columns: minmax(0, 1fr) minmax(95px, .8fr); gap: .35rem; padding: .75rem; }
+  .tv-card-heading { min-height: 0; }
+  .tv-card-heading h3 { font-size: 1.15rem; }
+  .tv-card-heading p { font-size: .78rem; }
+  .tv-card-energy { padding: 0; border: 0; text-align: right; }
+  .tv-card-energy > div { justify-content: flex-end; }
+  .tv-card-energy strong { font-size: 2.25rem; }
+  .tv-card-energy span { font-size: .75rem; }
+  .tv-card-badge { min-height: 0; padding: .3rem; margin-bottom: .3rem; font-size: .75rem; }
+  .tv-card-badge:empty { display: none; }
+  .tv-energy-label { display: none; }
+  .tv-card-facts { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: .6rem; margin: 0; }
+  .tv-card-facts > div { display: grid; flex: 1; gap: .2rem; padding: .4rem 0; font-size: .75rem; }
+  .tv-card-facts dt { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
+  .tv-card-choice { grid-column: 1 / -1; }
+  .tv-card-choice summary { margin-left: auto; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; }

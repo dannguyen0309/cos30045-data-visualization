@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { loadData } from "../dashboard/src/data.js";
-import { BANDS, catalogueSummary, technologyEnergy, lowestEnergyRegistrations } from '../dashboard/src/analysis.js';
+import { BANDS, catalogueSummary, technologyEnergy, lowestEnergyRegistrations, comparisonChoices, comparisonSize, defaultComparisonTVs, tvKey } from '../dashboard/src/analysis.js';
 
 globalThis.fetch = async (path) => ({
   ok: true,
@@ -32,10 +32,21 @@ assert.ok(ranked.every((row, index) => !index || row['Labelled energy consumptio
 assert.deepEqual(cleaned.map(row => row['Registration Number']), originalOrder);
 assert.equal(lowestEnergyRegistrations(oledSmall.slice(0, 3)).length, 3);
 assert.deepEqual(lowestEnergyRegistrations([]), []);
+const fiftyInch = comparisonChoices(cleaned, 50);
+assert.equal(comparisonSize({ 'Screen Size (inches)': 49.4988 }), 50);
+const defaults = defaultComparisonTVs(fiftyInch);
+assert.deepEqual(defaults.map(row => row.Brand_Reg), ['SAMSUNG', 'KOGAN', 'LG']);
+assert.deepEqual(defaults.map(row => row['Labelled energy consumption (kWh/year)']), [222, 210, 141]);
+assert.equal(new Set(defaults.map(tvKey)).size, 3);
+assert.ok(defaults.every(row => comparisonSize(row) === 50));
+assert.equal(defaultComparisonTVs(fiftyInch.filter(row => row.Brand_Reg === 'SAMSUNG')).length, 3);
+assert.equal(defaultComparisonTVs(fiftyInch.slice(0, 1)).length, 1);
+assert.deepEqual(defaultComparisonTVs([]), []);
+assert.deepEqual(comparisonChoices(cleaned, 999), []);
 
 globalThis.fetch = async () => ({
   ok: true,
   text: async () => "Screen Size Band,Count*(Submit_ID)\n1. Small,1175\n",
 });
 await assert.rejects(loadData(), /Invalid TV data/);
-console.log('PASS: catalogue counts, technology medians, missing groups, filtered ranking, source order and CSV validation.');
+console.log('PASS: catalogue, technology, 3-TV defaults, size grouping, empty/single-brand cases and CSV validation.');
