@@ -10,3 +10,11 @@ Example Workflows/
 .env
 .env.*
 !.env.example
+.agents/
+.cache/
+COS30045_AGENTS.md
+scripts/build_knime_workflow.py
+scripts/build_tv_outputs.py
+scripts/knime_templates/
+demonstration-1-html-content.md
+PRESENTATION_SCRIPT_VI.md

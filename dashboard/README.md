@@ -2,6 +2,15 @@
 
 React + Vite dashboard using Plotly and static CSV data.
 
+The dashboard shows registration shares, energy by size, technology comparisons
+within size bands, standby power, brand summaries and ten ranked energy bars.
+Technology colours remain consistent across charts and filters.
+
+The 04 Oct 2026 CSV is a registration snapshot, not sales or viewing data.
+`GrandDate` is empty throughout the source; `ExpDate` is an expiry date.
+Year-on-year changes cannot be calculated from this file. The page cites the
+2024 E3 Digital Displays report separately for historical context.
+
 ## Development
 
 ```powershell
@@ -16,6 +25,12 @@ Open the local URL printed by Vite, normally `http://localhost:5173`.
 ```powershell
 npm run build
 npm run preview
+```
+
+From the assignment root, validate the data and chart calculations:
+
+```powershell
+node scripts/check_dashboard_data.mjs
 ```
 
 ## Vercel deployment
