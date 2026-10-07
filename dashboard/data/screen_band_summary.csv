@@ -1,0 +1,5 @@
+"Screen Size Band","Mean(Labelled energy consumption (kWh/year))","Median(Labelled energy consumption (kWh/year))","Count*(Submit_ID)","Mean(Avg_mode_power)"
+"1. ≤43 inches",159.475744680851,148,1175,40.79354468085104
+"2. 44–55 inches",332.7959677419358,321,1240,86.80714241935506
+"3. 56–65 inches",484.78114842903557,451,923,126.74872249187452
+"4. >65 inches",751.4610259826783,681,1501,197.74980213191222

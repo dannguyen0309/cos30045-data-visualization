@@ -1,0 +1,12 @@
+﻿node_modules/
+dist/
+.vercel/
+.metadata/
+__pycache__/
+*.pyc
+.knimeLock
+.savedWithData
+Example Workflows/
+.env
+.env.*
+!.env.example
