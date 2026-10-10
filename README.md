@@ -13,13 +13,13 @@ Lab/
 ```
 
 Lab 1/2 node annotations are concise single lines. Their `.knwf` exports include
-source data and start as CONFIGURED; import and run Execute all to reproduce the
-results. Lab 2 keeps the verified 20-bin Histogram. The 10/30-bin experiments were
+source data and saved EXECUTED states, verified after import and Execute all.
+Import and run Execute all to reproduce the results. Lab 2 keeps the verified 20-bin Histogram. The 10/30-bin experiments were
 not performed, by the student's choice.
 
 ## Labs
 
-- [Lab 1](Lab/Lab-1/DataViz-Exercise-1/README.md): KNIME cleaning, brand counts and the [exported workflow](Lab/Lab-1/DataViz-Exercise-1_NguyenNgocLamDan.knwf).
+- [Lab 1](Lab/Lab-1/DataViz-Exercise-1/README.md): KNIME cleaning, brand counts and the [exported workflow](Lab/Lab-1/Exercise-1_NguyenNgocLamDan.knwf).
 - [Lab 2](Lab/Lab-2/Exercise-2/README.md): KNIME size/technology exploration and the [exported workflow](Lab/Lab-2/Exercise-2_NguyenNgocLamDan.knwf).
 - [Lab 3](Lab/Lab-3/README.md): separate February-snapshot data story, three static charts and a visual storyboard.
 
