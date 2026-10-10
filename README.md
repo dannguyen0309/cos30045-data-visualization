@@ -10,8 +10,6 @@ Lab/
   Lab-1/          Cleaning, brand counts and annotated KNIME export
   Lab-2/          Size/technology exploration and annotated KNIME export
   Lab-3/          February-snapshot data story and storyboard
-Submission/       Named portable workflow archives and declaration draft
-QA/               Verification results and screenshots
 ```
 
 Lab 1/2 node annotations are concise single lines. Their `.knwf` exports include
@@ -21,8 +19,8 @@ not performed, by the student's choice.
 
 ## Labs
 
-- [Lab 1](Lab/Lab-1/DataViz-Exercise-1/README.md): KNIME cleaning, brand counts and the exported workflow.
-- [Lab 2](Lab/Lab-2/Exercise-2/README.md): KNIME size/technology exploration and the exported workflow.
+- [Lab 1](Lab/Lab-1/DataViz-Exercise-1/README.md): KNIME cleaning, brand counts and the [exported workflow](Lab/Lab-1/DataViz-Exercise-1_NguyenNgocLamDan.knwf).
+- [Lab 2](Lab/Lab-2/Exercise-2/README.md): KNIME size/technology exploration and the [exported workflow](Lab/Lab-2/Exercise-2_NguyenNgocLamDan.knwf).
 - [Lab 3](Lab/Lab-3/README.md): separate February-snapshot data story, three static charts and a visual storyboard.
 
 The tutor has instructed use of this personal repository. Lab 3 is separate from
@@ -38,7 +36,7 @@ python -m http.server 8003 --bind 127.0.0.1 --directory Lab/Lab-3
 ## Demonstration 1
 
 - [Dashboard](Demonstration-1/dashboard/README.md): TV energy visualisation website.
-- [KNIME workflow](Demonstration-1/Demo-1.knwf): importable workflow archive.
+- [KNIME workflow](Demonstration-1/Demo-1_NguyenNgocLamDan.knwf): importable workflow archive.
 - `Demonstration-1/Demo-1/`: unpacked KNIME workflow and exported data.
 - `Demonstration-1/tv_2026_10_04.csv`: source dataset snapshot, 04 October 2026.
 - [Data cleaning audit](Demonstration-1/DATA_CLEANING_AUDIT_VI.md).

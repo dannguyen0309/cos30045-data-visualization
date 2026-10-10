@@ -90,7 +90,6 @@ Median có thể nằm giữa hai mức rating khi số bản ghi chẵn. Không
 2. Kiểm tra các filter theo số dòng trên; technology GroupBy và Pivot có 3 dòng.
 3. Mở Histogram, Scatter, hai energy chart, hai technology chart và grouped energy chart; đối chiếu số liệu/đơn vị với bảng tham khảo.
 4. Giữ Histogram ở 20 bins theo lựa chọn hiện tại; kiểm tra model ở size ít phổ biến và chuẩn bị giải thích ý nghĩa số bins. Trả lời câu hỏi Star2 bằng cách thử lại Pivot nếu cần.
-5. Chạy `python Lab/Lab-2/verify_lab2.py` từ COS30045. Script kiểm tra graph, cấu hình, phép tính tham khảo và trạng thái đã lưu; không thay thế kiểm tra giá trị chart.
-6. Export .knwf có tên sinh viên, kèm dữ liệu; import thử ở vị trí mới. Rà lại GenAI declaration.
+5. Export .knwf có tên sinh viên, kèm dữ liệu; import thử ở vị trí mới. Rà lại GenAI declaration.
 
 Không cần CSV Writer cho Lab 2. Các số tham khảo không phải bằng chứng graph mới đã chạy. Dataset là snapshot 15/02/2026, đếm registration records chứ không phải doanh số; dữ liệu nguồn được giữ nguyên.
