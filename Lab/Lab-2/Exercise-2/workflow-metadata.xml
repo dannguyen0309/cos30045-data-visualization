@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workflow-metadata content-type="text/plain" xmlns="http://www.knime.org/core/node/workflow/metadata/v1.0">
+    <last-modified>2026-10-10T16:57:12.329+07:00</last-modified>
+    <description>Exercise 2 simplified to 18 nodes following Canvas. One histogram, exact-inch scatter, directly averaged size/category bar charts, technology GroupBy/charts and an energy Pivot/grouped chart. Source: 15 Feb 2026 teaching CSV; 4,508 Available Australian registration records. Execute and verify in KNIME.</description>
+</workflow-metadata>

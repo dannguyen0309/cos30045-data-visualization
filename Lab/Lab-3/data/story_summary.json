@@ -1,0 +1,77 @@
+{
+  "snapshot": "2026-02-15",
+  "raw_count": 4724,
+  "filtered_count": 4508,
+  "bands": {
+    "Small": {
+      "count": 1111,
+      "mean_energy": 158.10981098109812
+    },
+    "Medium": {
+      "count": 2059,
+      "mean_energy": 404.6804273919378
+    },
+    "Large": {
+      "count": 1338,
+      "mean_energy": 748.8849028400598
+    }
+  },
+  "technologies": {
+    "LCD": {
+      "count": 562,
+      "mean_inches": 50.56731162608232
+    },
+    "LCD (LED)": {
+      "count": 3658,
+      "mean_inches": 59.48322520373854
+    },
+    "OLED": {
+      "count": 288,
+      "mean_inches": 64.97012111767279
+    }
+  },
+  "comparison": {
+    "LCD": {
+      "Small": {
+        "count": 237,
+        "mean_energy": 135.04641350210971
+      },
+      "Medium": {
+        "count": 215,
+        "mean_energy": 384.88837209302324
+      },
+      "Large": {
+        "count": 110,
+        "mean_energy": 654.5181818181818
+      }
+    },
+    "LCD (LED)": {
+      "Small": {
+        "count": 857,
+        "mean_energy": 163.0291715285881
+      },
+      "Medium": {
+        "count": 1671,
+        "mean_energy": 409.6301615798923
+      },
+      "Large": {
+        "count": 1130,
+        "mean_energy": 760.3504424778761
+      }
+    },
+    "OLED": {
+      "Small": {
+        "count": 17,
+        "mean_energy": 231.64705882352942
+      },
+      "Medium": {
+        "count": 173,
+        "mean_energy": 381.46820809248555
+      },
+      "Large": {
+        "count": 98,
+        "mean_energy": 722.6020408163265
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A data story about TV screen size, technology and estimated annual energy use in Australia.">
+  <title>Size first. Energy next. — Lab 3</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to the data story</a>
+  <header>
+    <nav aria-label="Story navigation"><a class="brand" href="#top">TV Energy / Lab 3</a><div><a href="#size">Size</a><a href="#technology">Technology</a><a href="#compare">Compare</a><a href="storyboard.html">Storyboard</a></div></nav>
+    <div class="hero" id="top">
+      <p class="eyebrow">Australian TV registrations · 15 February 2026</p>
+      <h1>Size first.<br>Energy next.</h1>
+      <p class="lead">Choosing a TV? Screen size changes the energy comparison. Explore three findings before comparing individual models.</p>
+      <p class="scope"><strong>4,508 registration records</strong> marked Available and registered for sale in Australia. This is a snapshot of a catalogue, not sales or live retailer stock.</p>
+    </div>
+  </header>
+  <main id="main" tabindex="-1">
+    <section class="chapter" id="size" aria-labelledby="size-title">
+      <p class="step">01 / Start with screen size</p>
+      <h2 id="size-title">Larger groups use more energy on average.</h2>
+      <p>Small-screen registrations average <strong>158.1 kWh/year</strong>. The large-screen group averages <strong>748.9 kWh/year</strong>. In this dataset, the average rises across all three size groups.</p>
+      <figure><img src="assets/size-energy.svg" width="640" height="310" alt="Mean annual energy: Small 158.1, Medium 404.7, Large 748.9 kWh per year."><figcaption>Read the bar length against the shared zero baseline. Annual labelled energy is a standardised estimate, not a household electricity bill.</figcaption></figure>
+      <table><caption>Mean energy by measured screen-size group</caption><thead><tr><th scope="col">Group</th><th scope="col">Rounded diagonal</th><th scope="col">Records</th><th scope="col">kWh/year</th></tr></thead><tbody><tr><th scope="row">Small</th><td>≤43 inches</td><td>1,111</td><td>158.1</td></tr><tr><th scope="row">Medium</th><td>44–65 inches</td><td>2,059</td><td>404.7</td></tr><tr><th scope="row">Large</th><td>≥66 inches</td><td>1,338</td><td>748.9</td></tr></tbody></table>
+      <p class="note">Groups use the measured diagonal converted from cm to inches, then rounded. They are analysis choices, not official size categories. Mean includes high-energy models; the association does not establish a causal effect for a particular TV.</p>
+    </section>
+    <section class="chapter" id="technology" aria-labelledby="technology-title">
+      <p class="step">02 / Check the size mix</p>
+      <h2 id="technology-title">OLED models are larger on average.</h2>
+      <p>OLED registrations average <strong>65.0 inches</strong>, compared with <strong>59.5 inches</strong> for LCD (LED) and <strong>50.6 inches</strong> for LCD. Technology groups therefore contain different mixes of screen sizes.</p>
+      <figure><img src="assets/technology-size.svg" width="640" height="310" alt="Mean screen size: LCD 50.6 inches, LCD LED 59.5 inches, OLED 65.0 inches."><figcaption>The calculation uses the exact converted diagonal, before rounding. Labels identify each technology without relying on colour.</figcaption></figure>
+      <table><caption>Technology groups in the snapshot</caption><thead><tr><th scope="col">Technology</th><th scope="col">Records</th><th scope="col">Mean inches</th></tr></thead><tbody><tr><th scope="row">LCD</th><td>562</td><td>50.6</td></tr><tr><th scope="row">LCD (LED)</th><td>3,658</td><td>59.5</td></tr><tr><th scope="row">OLED</th><td>288</td><td>65.0</td></tr></tbody></table>
+      <p class="note">These counts describe registration records. They do not measure sales market share or consumer preference.</p>
+    </section>
+    <section class="chapter" id="compare" aria-labelledby="compare-title">
+      <p class="step">03 / Compare within a size group</p>
+      <h2 id="compare-title">A technology label is not the whole answer.</h2>
+      <p>In the medium group, OLED averages <strong>381.5 kWh/year</strong> and LCD (LED) <strong>409.6 kWh/year</strong>. In the small group, their order reverses. This supports comparing size and energy together instead of ranking technologies by one overall average.</p>
+      <figure><img src="assets/technology-energy.svg" width="640" height="675" loading="lazy" alt="Grouped bars compare mean annual energy for LCD, LCD LED and OLED within Small, Medium and Large screen groups. Exact values are in the following table."><figcaption>Each cluster holds size roughly constant. All nine bars use the same 0–800 kWh/year scale; colours and repeated labels identify technology.</figcaption></figure>
+      <table><caption>Mean annual energy, kWh/year</caption><thead><tr><th scope="col">Technology</th><th scope="col">Small</th><th scope="col">Medium</th><th scope="col">Large</th></tr></thead><tbody><tr><th scope="row">LCD</th><td>135.0</td><td>384.9</td><td>654.5</td></tr><tr><th scope="row">LCD (LED)</th><td>163.0</td><td>409.6</td><td>760.4</td></tr><tr><th scope="row">OLED</th><td>231.6</td><td>381.5</td><td>722.6</td></tr></tbody></table>
+      <p class="note">The small OLED group has only 17 registrations. These broad bands still contain different exact sizes and features. Group averages describe this snapshot; they do not prove that one technology causes lower energy use.</p>
+    </section>
+    <section class="takeaway" aria-labelledby="takeaway-title">
+      <p class="step">Your next comparison</p>
+      <h2 id="takeaway-title">Compare the TV you need, then its energy label.</h2>
+      <ol><li>Choose the screen size that meets your needs.</li><li>Compare labelled kWh/year between similar-sized models.</li><li>Read the star rating alongside energy consumption. Equal stars do not mean equal annual energy.</li></ol>
+      <p><a href="https://www.energyrating.gov.au/consumer-information/products/televisions">How the official Energy Rating label supports TV comparisons</a></p>
+    </section>
+  </main>
+  <footer><p><strong>Source:</strong> Australian Government Energy Rating registration data; teaching CSV dated 15 February 2026. <a href="data/tv_2026_02_15.csv">Original CSV</a> · <a href="README.md">About the data and AI declaration</a>.</p><p>Related coursework: Lab 1 cleaning, Lab 2 KNIME exploration, and a separate Demonstration 1 explorer using the 4 October 2026 snapshot. Figures from these snapshots are not mixed.</p></footer>
+</body>
+</html>

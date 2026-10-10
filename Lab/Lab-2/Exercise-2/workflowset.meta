@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This file is auto-generated and is overwritten each time the workflow is saved.
+    The metadata have moved to the `workflow-metadata.xml` file.-->
+<KNIMEMetaInfo nrOfElements="2" xmlns="http://www.knime.org/2.9/metainfo">
+    <element form="multiline" name="Comments" read-only="false">Exercise 2 simplified to 18 nodes following Canvas. One histogram, exact-inch scatter, directly averaged size/category bar charts, technology GroupBy/charts and an energy Pivot/grouped chart. Source: 15 Feb 2026 teaching CSV; 4,508 Available Australian registration records. Execute and verify in KNIME.</element>
+    <element form="text" name="Last Edited" read-only="true">2026-10-10 16:57:12 +0700</element>
+</KNIMEMetaInfo>

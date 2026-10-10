@@ -274,6 +274,7 @@ function Dashboard({ cleaned, standby }) {
       </section>
       <section className="story-chapter" aria-labelledby="chapter-size">
         <div className="chapter-heading"><span>03</span><div><h2 id="chapter-size">Screen size and energy consumption</h2></div></div>
+        <p className="chart-note">Start with the screen size you need. Use the scatter plot to compare models of a similar size; the bars show the middle annual-energy value in each size band. The charts respond to your filters.</p>
         <div className="chart-grid">
           <ChartPanel index="03" title="Screen size vs annual energy" spec={scatterSpec(rows)} label="Scatter plot of screen size and annual energy by screen technology" wide large />
           <ChartPanel index="04" title="Median annual energy by screen size" spec={bandSpec(rows)} label="Bar chart comparing median annual energy by screen-size band" wide />
@@ -281,6 +282,7 @@ function Dashboard({ cleaned, standby }) {
       </section>
       <section className="story-chapter" aria-labelledby="chapter-tech">
         <div className="chapter-heading"><span>04</span><div><h2 id="chapter-tech">Screen technology and standby power</h2></div></div>
+        <p className="chart-note">Technology groups contain different mixes of screen sizes. Compare energy within a size band before interpreting differences between LCD, LCD (LED) and OLED. Standby power describes a separate operating mode.</p>
         <div className="chart-grid">
           <ChartPanel index="05" title="Median annual energy by technology and size" spec={technologyEnergySpec(rows)} label="Grouped bar chart comparing median annual energy for screen technologies within each screen-size band" wide large />
           <p className="chart-note panel-wide">Colours identify screen technology. Each group compares similar-sized TVs; exact sizes still vary within a band. Missing bars indicate no registrations.</p>
@@ -289,12 +291,18 @@ function Dashboard({ cleaned, standby }) {
       </section>
       <section className="story-chapter" aria-labelledby="chapter-compare">
         <div className="chapter-heading"><span>05</span><div><h2 id="chapter-compare">Brands and individual TVs</h2></div></div>
+        <p className="chart-note">A brand's typical energy use also reflects the sizes it offers. Use the individual TV comparison below to inspect similar-sized models, their exact diagonals, labelled energy and star ratings.</p>
         <div className="chart-grid">
           <ChartPanel index="07" title="Median annual energy by brand" spec={brandSpec(rows)} label="Horizontal bar chart comparing median annual energy of the 12 brands with the most registrations in the filtered data" wide large />
         </div>
       </section>
     </section> : <section className="panel empty-state"><h2>No matching models</h2><p>Adjust or reset the filters to restore results.</p></section>}
     <TVComparison key={JSON.stringify(filters)} rows={rows} />
+    <section className="panel model-panel" aria-labelledby="takeaway-title">
+      <h2 id="takeaway-title">Choose size first, then compare energy.</h2>
+      <p>Within the size that meets your needs, compare labelled kWh/year alongside the star rating. Equal stars can still mean different annual energy use when screen sizes differ. The comparison badge applies to the TVs you selected.</p>
+      <p><a href="https://www.energyrating.gov.au/consumer-information/products/televisions" rel="noreferrer">Read the official guide to TV Energy Rating labels</a></p>
+    </section>
   </div>;
 }
 
@@ -326,7 +334,7 @@ export default function App() {
         <div className="hero-copy">
           <p className="eyebrow">Australian television market</p>
           <h1>Australian TV <span>Energy Explorer</span></h1>
-          <p className="lede">Energy consumption across screen sizes, display technologies and brands in the Australian television market.</p>
+          <p className="lede">Choosing a TV? Start with the screen size you need, then compare annual energy between similar-sized models in the Australian registration catalogue.</p>
           <a className="hero-action" href="#overview">Explore data <span aria-hidden="true">↓</span></a>
         </div>
         <aside className="hero-card" aria-label="Study scope">
@@ -336,12 +344,12 @@ export default function App() {
         </aside>
       </div>
     </header>
-    <main id="main">
+    <main id="main" tabIndex={-1}>
       {!data && !error && <section className="status-panel" aria-live="polite"><span className="spinner" aria-hidden="true" /><p>Loading television data…</p></section>}
       {error && <section className="status-panel error-panel" role="alert"><h2>Dashboard data could not be loaded</h2><p>{error}</p><button type="button" onClick={() => setRetry((value) => value + 1)}>Retry</button></section>}
       {data && <Dashboard {...data} />}
     </main>
-    <footer><p>Source: Australian Government Energy Rating registration database.</p></footer>
+    <footer><p>Source: <a href="https://www.energyrating.gov.au/program-tools/energy-rating-registration-database" rel="noreferrer">Australian Government Energy Rating registration database</a>. Snapshot: 04 October 2026.</p><p>Labelled kWh/year is a standardised estimate. Registrations describe the catalogue; availability does not confirm retailer stock or sales.</p></footer>
     </div>
   </div>;
 }

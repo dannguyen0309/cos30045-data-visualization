@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This file is auto-generated and is overwritten each time the workflow is saved.
+    The metadata have moved to the `workflow-metadata.xml` file.-->
+<KNIMEMetaInfo nrOfElements="2" xmlns="http://www.knime.org/2.9/metainfo">
+    <element form="multiline" name="Comments" read-only="false">Exercise 1: Australian Available TV registrations by cleaned brand; 15 February 2026 snapshot. Includes Samsung, Q.Bell and SVISION name normalisation; Hubbl Glass grouped under Hubbl. Expected: 4,508 records, 73 brands, hubbl = 3. Execute and verify in KNIME. See README and GenAI declaration.</element>
+    <element form="text" name="Last Edited" read-only="true">2026-09-14 10:03:16 +0700</element>
+</KNIMEMetaInfo>

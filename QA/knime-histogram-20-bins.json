@@ -1,0 +1,29 @@
+{
+  "source": "Executed KNIME Histogram (#14), saved 20-bin run",
+  "column": "screensize (cm)",
+  "bins": 20,
+  "registration_count": 4508,
+  "bin_frequencies_in_node_order": [
+    23,
+    205,
+    10,
+    300,
+    172,
+    401,
+    428,
+    749,
+    53,
+    829,
+    103,
+    591,
+    65,
+    350,
+    83,
+    0,
+    137,
+    0,
+    0,
+    9
+  ],
+  "other_bin_experiments": "10 and 30 bins not yet performed, confirmed by student"
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "file": "DataViz-Exercise-1_NguyenNgocLamDan.knwf",
+    "source_nodes_verified_executed": 14,
+    "archive_state": "CONFIGURED: Execute all after import",
+    "raw_csv": "tv_2026_02_15.csv",
+    "sha256": "d7f56af11012ec83990719e5496749e024e5d5da2f717db9da6b6744bb7ca42d",
+    "bytes": 190420
+  },
+  {
+    "file": "Exercise-2_NguyenNgocLamDan.knwf",
+    "source_nodes_verified_executed": 18,
+    "archive_state": "CONFIGURED: Execute all after import",
+    "raw_csv": "tv_2026_02_15.csv",
+    "sha256": "a1868a7f691ef856a1f0323840532088468ba7c7454aaad76f99189971fa6564",
+    "bytes": 196130
+  },
+  {
+    "file": "Demo-1_NguyenNgocLamDan.knwf",
+    "source_nodes_verified_executed": 31,
+    "archive_state": "CONFIGURED: Execute all after import",
+    "raw_csv": "tv_2026_10_04.csv",
+    "sha256": "aa8102f8daea9fa54f14ad76a430e2cfc971f733879b0ffc03a8a3cc1acbc1ee",
+    "bytes": 355918
+  }
+]

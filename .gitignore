@@ -6,6 +6,12 @@ __pycache__/
 *.pyc
 .knimeLock
 .savedWithData
+# KNIME runtime caches; settings, source data and .knwf exports remain versioned.
+Lab/**/port_*/
+Lab/**/internalTables/
+Lab/**/internal/
+Lab/**/.artifacts/
+Lab/**/workflow.svg
 Example Workflows/
 .env
 .env.*
