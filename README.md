@@ -67,9 +67,7 @@ bands. The sites share methods, while keeping their figures separate.
 
 ## AI Declaration
 
-OpenAI Codex assisted with this Lab 3 narrative integration and its documentation
-on 10 October 2026. Existing chart calculations and KNIME outputs were retained.
-Review and add earlier AI assistance before submitting the complete declaration.
+See [GenAI-Declaration.md](Demonstration-1/GenAI-Declaration.md).
 
 ## Development
 

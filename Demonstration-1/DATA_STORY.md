@@ -49,6 +49,4 @@ existing explorer.
 
 ## AI Declaration
 
-OpenAI Codex assisted with this Lab 3 integration on 10 October 2026: audience and story structure, contextual website text, the takeaway/source wording and this documentation. Existing chart calculations, filters and KNIME data were retained. Separate standalone Lab 3 artefacts were prepared from the February teaching snapshot.
-
-This paragraph records this integration work, not the complete earlier AI history of Demonstration 1. Add and review earlier AI use in the final declaration. The student remains responsible for checking the outputs and explaining the submitted work.
+See [GenAI-Declaration.md](GenAI-Declaration.md).

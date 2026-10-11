@@ -73,9 +73,7 @@ Credit the data publisher and explain the filtering and grouping choices. Keep t
 
 ## AI Declaration
 
-OpenAI Codex assisted on 10 October 2026 with audience and story structure, the static HTML/CSS page, SVG charts, storyboard, data validation, this README, and the related narrative additions to Demonstration 1. Python standard-library calculations prepare and check the static figures; they do not replace the KNIME workflow evidence. The student chose to keep Lab 3 separate while using Demo 1 as a synthesis of Labs 1–3.
-
-Review this declaration and add earlier AI assistance before submission. Be prepared to explain the data, chart choices, mean calculations and limitations independently.
+See [GenAI-Declaration.md](GenAI-Declaration.md).
 
 ## Run and repository
 
