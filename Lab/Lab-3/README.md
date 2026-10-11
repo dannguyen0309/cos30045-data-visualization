@@ -73,7 +73,7 @@ Credit the data publisher and explain the filtering and grouping choices. Keep t
 
 ## AI Declaration
 
-See [GenAI-Declaration.md](GenAI-Declaration.md).
+See [GenAI-Declaration_Lab-3.md](GenAI-Declaration_Lab-3.md).
 
 ## Run and repository
 

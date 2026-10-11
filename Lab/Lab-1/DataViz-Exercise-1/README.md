@@ -68,7 +68,7 @@ Các số dưới đây được tính độc lập từ CSV để đối chiế
 5. Kiểm tra CSV Writer đã tạo `data/COS30045-Exercise1.csv`: 73 dòng dữ liệu, hai cột `Brand_Reg` và `Count(SoldIn)`; tổng count = 4.508. `hubbl` có 3 bản ghi và không còn category `hubbl glass`.
 6. Save và export lại `.knwf`, thêm tên sinh viên vào filename theo slide Week 2.
 7. Import bản export vào vị trí mới, chạy lại để xác nhận dữ liệu đi kèm và đường dẫn hoạt động.
-8. Đọc, bổ sung và xác nhận `GenAI-Declaration.md`, đặc biệt các lần dùng AI trước phiên chuẩn bị này.
+8. Đọc, bổ sung và xác nhận `GenAI-Declaration_Lab-1.md`, đặc biệt các lần dùng AI trước phiên chuẩn bị này.
 
 ## Cách đọc chart và giới hạn
 

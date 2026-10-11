@@ -64,7 +64,7 @@ bands. The sites share methods, while keeping their figures separate.
 
 ## AI Declaration
 
-See [GenAI-Declaration.md](Demonstration-1/GenAI-Declaration.md).
+See [GenAI-Declaration_Demo-1.md](Demonstration-1/GenAI-Declaration_Demo-1.md).
 
 ## Development
 
