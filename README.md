@@ -39,8 +39,6 @@ python -m http.server 8003 --bind 127.0.0.1 --directory Lab/Lab-3
 - [KNIME workflow](Demonstration-1/Demo-1_NguyenNgocLamDan.knwf): importable workflow archive.
 - `Demonstration-1/Demo-1/`: unpacked KNIME workflow and exported data.
 - `Demonstration-1/tv_2026_10_04.csv`: source dataset snapshot, 04 October 2026.
-- [Data cleaning audit](Demonstration-1/DATA_CLEANING_AUDIT_VI.md).
-- [Data story and storyboard](Demonstration-1/DATA_STORY.md): Demo 1 synthesis of Labs 1–3.
 - [Visual storyboard](Demonstration-1/dashboard/public/storyboard.html).
 
 ## Data Story
@@ -49,8 +47,8 @@ The explorer is for Australian TV shoppers comparing estimated annual energy
 between similar-sized models. Its sequence moves from catalogue context to
 screen size, technology within size bands, and individual TVs. The closing
 guidance connects those comparisons to the official Energy Rating label.
-Audience, questions and the six-scene storyboard are documented in
-[DATA_STORY.md](Demonstration-1/DATA_STORY.md).
+The reading sequence is shown in the
+[visual storyboard](Demonstration-1/dashboard/public/storyboard.html).
 
 ## About the data
 
@@ -58,8 +56,7 @@ The source is the Australian Government Energy Rating registration CSV dated
 **4 October 2026**. KNIME filters Australian Available registrations and expiry
 status, standardises brands, converts units and exports chart data: 4,839 records
 remain from 5,030 source rows. These are public product registrations, not sales,
-retailer stock or household usage. Processing, privacy, accuracy/limitations and
-ethics are documented in [DATA_STORY.md](Demonstration-1/DATA_STORY.md).
+retailer stock or household usage. The analysis describes this snapshot and does not establish causal relationships.
 
 Standalone Lab 3 uses the **15 February 2026** teaching snapshot, mean energy and
 three size groups. Demo 1 uses its October snapshot, median energy and four size
