@@ -16,7 +16,7 @@ Year-on-year changes cannot be calculated from this file. The page cites the
 
 ## Development
 
-Run these commands inside `Demonstration-1/dashboard` in the repository.
+Run these commands inside `Assignments/Demonstration-1/dashboard` in the repository.
 
 ```powershell
 npm install
@@ -40,7 +40,7 @@ node scripts/check_dashboard_data.mjs
 
 ## Vercel deployment
 
-For GitHub imports, set Root Directory to `Demonstration-1/dashboard`, Application
+For GitHub imports, set Root Directory to `Assignments/Demonstration-1/dashboard`, Application
 Preset to Vite, Build Command to `npm run build`, and Output Directory to `dist`.
 For CLI deployment, run the following inside this dashboard directory:
 
@@ -51,7 +51,7 @@ npx vercel --prod
 
 ## Refresh data
 
-From `Demonstration-1/` inside the repository:
+From `Assignments/Demonstration-1/` inside the repository:
 
 ```powershell
 python scripts/sync_knime_data.py

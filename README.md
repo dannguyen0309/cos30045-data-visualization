@@ -5,7 +5,7 @@ Course assignments for COS30045 Data Visualisation.
 Repository layout:
 
 ```text
-Demonstration-1/   October-snapshot explorer and KNIME analysis
+Assignments/Demonstration-1/   October-snapshot explorer and KNIME analysis
 Lab/
   Lab-1/          Cleaning, brand counts and annotated KNIME export
   Lab-2/          Size/technology exploration and annotated KNIME export
@@ -35,11 +35,11 @@ python -m http.server 8003 --bind 127.0.0.1 --directory Lab/Lab-3
 
 ## Demonstration 1
 
-- [Dashboard](Demonstration-1/dashboard/README.md): TV energy visualisation website.
-- [KNIME workflow](Demonstration-1/Demo-1_NguyenNgocLamDan.knwf): importable workflow archive.
-- `Demonstration-1/Demo-1/`: unpacked KNIME workflow and exported data.
-- `Demonstration-1/tv_2026_10_04.csv`: source dataset snapshot, 04 October 2026.
-- [Visual storyboard](Demonstration-1/dashboard/public/storyboard.html).
+- [Dashboard](Assignments/Demonstration-1/dashboard/README.md): TV energy visualisation website.
+- [KNIME workflow](Assignments/Demonstration-1/Demo-1_NguyenNgocLamDan.knwf): importable workflow archive.
+- `Assignments/Demonstration-1/Demo-1/`: unpacked KNIME workflow and exported data.
+- `Assignments/Demonstration-1/tv_2026_10_04.csv`: source dataset snapshot, 04 October 2026.
+- [Visual storyboard](Assignments/Demonstration-1/dashboard/public/storyboard.html).
 
 ## Data Story
 
@@ -48,7 +48,7 @@ between similar-sized models. Its sequence moves from catalogue context to
 screen size, technology within size bands, and individual TVs. The closing
 guidance connects those comparisons to the official Energy Rating label.
 The reading sequence is shown in the
-[visual storyboard](Demonstration-1/dashboard/public/storyboard.html).
+[visual storyboard](Assignments/Demonstration-1/dashboard/public/storyboard.html).
 
 ## About the data
 
@@ -64,14 +64,14 @@ bands. The sites share methods, while keeping their figures separate.
 
 ## AI Declaration
 
-See [GenAI-Declaration_Demo-1.md](Demonstration-1/GenAI-Declaration_Demo-1.md).
+See [GenAI-Declaration_Demo-1.md](Assignments/Demonstration-1/GenAI-Declaration_Demo-1.md).
 
 ## Development
 
 Run the website from the repository root:
 
 ```powershell
-cd Demonstration-1/dashboard
+cd Assignments/Demonstration-1/dashboard
 npm ci
 npm run dev
 ```
@@ -79,14 +79,14 @@ npm run dev
 Validate dashboard data from the repository root:
 
 ```powershell
-node Demonstration-1/scripts/check_dashboard_data.mjs
+node Assignments/Demonstration-1/scripts/check_dashboard_data.mjs
 ```
 
 After executing and saving the KNIME workflow, synchronise its exports:
 
 ```powershell
-python Demonstration-1/scripts/sync_knime_data.py
+python Assignments/Demonstration-1/scripts/sync_knime_data.py
 ```
 
-For Vercel, set Root Directory to `Demonstration-1/dashboard`, Application Preset
+For Vercel, set Root Directory to `Assignments/Demonstration-1/dashboard`, Application Preset
 to Vite, Build Command to `npm run build`, and Output Directory to `dist`.

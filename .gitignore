@@ -1,4 +1,4 @@
-﻿node_modules/
+node_modules/
 dist/
 .vercel/
 .metadata/
@@ -19,8 +19,19 @@ Example Workflows/
 .agents/
 .cache/
 COS30045_AGENTS.md
-scripts/build_knime_workflow.py
-scripts/build_tv_outputs.py
-scripts/knime_templates/
+Assignments/Demonstration-1/scripts/build_knime_workflow.py
+Assignments/Demonstration-1/scripts/build_tv_outputs.py
+Assignments/Demonstration-1/scripts/knime_templates/
 demonstration-1-html-content.md
 PRESENTATION_SCRIPT_VI.md
+
+# Local course materials and workspace files remain on this computer.
+/Course Materials/
+/tmp/
+/AGENTS.md
+/canvas_pdfs.csv
+/demo-preparation.md
+/demonstration-1-plan.md
+/download_canvas_pdfs.py
+/image.png
+/requirements.txt
