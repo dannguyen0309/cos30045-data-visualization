@@ -1,0 +1,4 @@
+screensize_category,Count*(Model_No)
+1. Small (<=43 in),1111
+2. Medium (44-65 in),2059
+3. Large (>=66 in),1338
