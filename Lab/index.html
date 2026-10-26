@@ -1,0 +1,75 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>From SVG to interactive data · COS30045</title><link rel="stylesheet" href="shared/base.css"><link rel="icon" href="data:,"></head><body><a class="skip" href="#main">Skip to content</a><header><a href="index.html"><strong>COS30045 · Demonstration 2</strong></a><nav aria-label="Exercises"><a href="index.html#house">4.1 SVG house</a><a href="index.html#brands">4.3–4.7 Bar chart</a><a href="index.html#multichart">5 Multi-chart</a><a href="index.html#interactivity">6 Interactivity</a></nav></header><main id="main"><p class="eyebrow">Week 4–6 · Nguyen Ngoc Lam Dan · 104992198</p><h1>From SVG to interactive data</h1><p class="lead">SVG, data and interaction with D3 v7. All exercises in one website.</p><noscript>Enable JavaScript to view the charts. CSV files remain available in the data folders.</noscript><section id="house"><p class="eyebrow">Exercise 4.1 · SVG</p><h2>Building a house with coordinates</h2>
+<p>The origin (0,0) is at the top left. x increases to the right; y increases downward. The canvas uses viewBox 0 0 720 440.</p>
+<figure id="house-final"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 440" role="img" aria-labelledby="title desc">
+<title id="title">House and garden</title><desc id="desc">A yellow house with a teal roof, grouped windows, a curved garden path, a tree, sun and fence.</desc>
+<rect width="720" height="440" fill="#e6f2f8"/><rect y="320" width="720" height="120" fill="#a8bd91"/>
+<!-- circle: cx/cy locate the sun centre; r sets its radius. -->
+<circle cx="615" cy="75" r="38" fill="#f1bd50"/>
+<!-- ellipse: rx and ry are the horizontal and vertical radii. -->
+<ellipse cx="120" cy="95" rx="70" ry="24" fill="white"/>
+<rect x="434" y="92" width="28" height="80" fill="#8d5945" stroke="#344957" stroke-width="2"/>
+<!-- rect: x/y locate the top-left corner; width/height set the wall size. -->
+<rect x="220" y="180" width="280" height="180" fill="#f1dca8" stroke="#344957" stroke-width="2"/>
+<!-- polygon: the listed vertices form a closed roof shape. -->
+<polygon points="200,180 360,70 520,180" fill="#286b75" stroke="#344957" stroke-width="3"/>
+<rect x="330" y="260" width="60" height="100" fill="#72533c"/><circle cx="377" cy="314" r="4" fill="#f1bd50"/>
+<!-- g: children inherit fill and stroke; translate moves their local origin. -->
+<g id="windows" fill="#bce4f3" stroke="#344957" stroke-width="3" transform="translate(250,210)">
+<g><rect width="48" height="48"/><line x1="24" y1="0" x2="24" y2="48"/><line x1="0" y1="24" x2="48" y2="24"/></g>
+<!-- Nested translate adds 172 to the outer group x position for the second window. -->
+<g transform="translate(172,0)"><rect width="48" height="48"/><line x1="24" y1="0" x2="24" y2="48"/><line x1="0" y1="24" x2="48" y2="24"/></g></g>
+<!-- path: M moves to the start; Q draws a quadratic curve through a control point. -->
+<path d="M360 360 Q300 395 380 440" fill="none" stroke="#dfc8a5" stroke-width="32"/>
+<rect x="95" y="245" width="20" height="110" fill="#72533c"/><ellipse cx="105" cy="235" rx="58" ry="70" fill="#3b7651"/>
+<!-- polyline: connect the listed points without automatically closing the shape. -->
+<polyline points="550,370 550,315 575,295 600,315 600,370 625,370 625,315 650,295 675,315 675,370" fill="none" stroke="#faf7ee" stroke-width="8"/>
+<!-- line: x1/y1 and x2/y2 specify the two endpoints. -->
+<line x1="540" y1="345" x2="690" y2="345" stroke="#faf7ee" stroke-width="8"/>
+<!-- text: x/y locate the text baseline, rather than its top-left corner. -->
+<text x="24" y="40" font-family="sans-serif" font-size="22" fill="#163247">A quiet garden</text>
+</svg>
+<figcaption>Revised version: new wall and roof colours, a thicker roof stroke and windows moved up by 5 units. Added a chimney, curved path, tree and fence.</figcaption></figure>
+<details><summary>View the initial version</summary><figure id="house-initial"><img src="Lab-4/house-before.svg" width="720" height="440" alt="Initial house with grey walls and a red roof, before adding the path, tree and fence"><figcaption>The initial version is preserved in house-before.svg.</figcaption></figure></details>
+<figure id="coordinates"><h3>Reading the coordinates in the revised drawing</h3><div class="table-wrap"><table><caption>Coordinates use the viewBox system, rather than fixed screen pixels</caption><thead><tr><th>SVG</th><th>Example</th><th>How to read it</th></tr></thead><tbody>
+<tr><td>rect</td><td>House walls</td><td>x=220, y=180; width=280, height=180</td></tr>
+<tr><td>circle</td><td>Sun</td><td>cx=615, cy=75; r=38</td></tr>
+<tr><td>ellipse</td><td>Cloud</td><td>cx=120, cy=95; rx=70, ry=24</td></tr>
+<tr><td>line</td><td>Fence rail</td><td>(540,345) to (690,345)</td></tr>
+<tr><td>polygon</td><td>Roof</td><td>(200,180), (360,70), (520,180); automatically closed</td></tr>
+<tr><td>polyline</td><td>Fence tops</td><td>Starts at (550,370), through (550,315), (575,295)…; remains open</td></tr>
+<tr><td>path</td><td>Garden path</td><td>M360 360; Q300 395 380 440. Q uses control point (300,395) and endpoint (380,440).</td></tr>
+<tr><td>text</td><td>Garden title</td><td>x=24, y=40 positions the start of the text baseline</td></tr>
+<tr><td>g + translate</td><td>Two windows</td><td>Shared group: translate(250,210). The second window uses translate(172,0). Their top-left corners are (250,210) and (422,210).</td></tr>
+</tbody></table></div></figure>
+<details><summary>Window group: inherited styling</summary><pre>&lt;g id="windows" fill="#bce4f3" stroke="#344957"
+   stroke-width="3" transform="translate(250,210)"&gt;
+  &lt;g&gt;&lt;rect width="48" height="48" /&gt;…&lt;/g&gt;
+  &lt;g transform="translate(172,0)"&gt;…&lt;/g&gt;
+&lt;/g&gt;</pre></details>
+<details><summary>Evidence and Developer Tools</summary><p>Real browser captures are saved in the evidence folder after testing. To capture the live DOM, open F12 → Elements, expand svg and g#windows, then capture the drawing and DOM together. The code excerpt on this page is not a Developer Tools screenshot.</p><div id="house-evidence"></div></details>
+</section><section id="brands"><p class="eyebrow">Exercise 4.3–4.7 · Binding, scales, labels</p><h2>Which brands have the most TV registrations?</h2>
+<p id="brand-status" class="status">Loading CSV…</p><figure><div id="brand-chart" class="chart"></div><figcaption>Bar length represents the registration count, starting at zero. Only brands with at least 20 registrations are shown, following the supplied workflow’s Row Filter.</figcaption></figure>
+<details><summary>View the data table and download CSV</summary><p><a href="Lab-4/data/tvBrandCount.csv" download>tvBrandCount.csv</a></p><div id="brand-table" class="table-wrap"></div></details>
+<p class="note">Source: tvBrandCount.csv included in 2026 TV Data.knwf, using the 15 February 2026 snapshot. The workflow keeps Available registrations sold in Australia, standardises brands and groups the records. Counts describe registrations, not sales.</p>
+<details><summary>Exercise 4.2–4.3: D3 practice before the bar chart</summary><p>Open the preserved practice example: <a href="Lab-4/practice.html">select, style, append a paragraph and a rectangle</a>. The practice code has its own page so it does not add extra shapes to the final chart.</p></details></section><section id="multichart"><p class="eyebrow">Exercise 5 · Multi-chart</p><h2>Three views of TVs and electricity prices</h2>
+<h3>How does mean annual energy compare at 55 inches?</h3><p id="energy-status" class="status">Loading KNIME output…</p>
+<figure><div id="energy-chart" class="chart"></div><figcaption>Bar height represents mean kWh/year. Convert screensize from centimetres using / 2.54, round to the nearest integer, then filter for 55. This is a size grouping rule, not an exact measurement of 55.000 inches.</figcaption></figure>
+<details><summary>Mean energy and sample counts</summary><div id="energy-table" class="table-wrap"></div></details>
+<h3>How wholesale spot prices changed over time</h3><p id="price-status" class="note">Loading data…</p>
+<figure><div id="line-chart" class="chart"></div><figcaption>Points show the supplied annual average price, joined by straight line segments. Unit: AUD/MWh. Wholesale spot prices are not household retail electricity prices.</figcaption></figure>
+<details><summary>Annual electricity price table</summary><div id="price-table" class="table-wrap"></div></details>
+<h3>What share of registrations belongs to each size group?</h3><p id="size-status" class="note">Loading KNIME output…</p>
+<figure><div id="donut-chart" class="chart"></div><ul id="size-legend" class="legend"></ul><figcaption>Arc angles represent registration shares. Order: Small → Medium → Large. Group boundaries follow the existing Lab 2 workflow.</figcaption></figure>
+<details><summary>Counts and percentages</summary><div id="size-table" class="table-wrap"></div></details>
+<p class="note">TVs: 15 February 2026 snapshot, Available and sold in Australia; no expiry-date filter or deduplication. Means are sensitive to outliers. Electricity prices: ARE_Spot_Prices.csv supplied on Canvas, 1998–2024. Reuse licences for the teaching files have not been verified.</p></section><section id="interactivity"><p class="eyebrow">Exercise 6 · Interactivity</p><h2>One technology filter updates both charts</h2>
+<div id="filters" class="filters" role="group" aria-label="Select screen technology"></div><p id="selection-status" class="status" role="status" aria-live="polite" aria-atomic="true">Loading TV data…</p>
+<figure><h3>Annual energy distribution</h3><div id="histogram" class="chart"></div><figcaption>Bin boundaries and both axis domains stay fixed when filtering. Frequency counts records in each interval. Bins include the lower bound and exclude the upper bound; the last bin includes its upper bound.</figcaption></figure>
+<details><summary>Histogram frequency table</summary><div id="bins-table" class="table-wrap"></div></details>
+<figure><h3>Star rating and annual energy</h3><ul id="tech-legend" class="legend"></ul><div id="scatterplot" class="chart"></div>
+<p id="tooltip" class="tooltip" role="status">Select a point or record to inspect its values.</p>
+<label for="record-select">Inspect a record (keyboard and touch accessible)</label><select id="record-select" style="display:block;width:100%;min-height:44px;font:inherit;margin-top:8px" disabled></select>
+<figcaption>Hover, tap or focus to inspect a point. Use ←/→ to move between points while the chart has focus. The record list also reaches overlapping points. The table below contains the same filtered data.</figcaption></figure>
+<details><summary>Filtered TV records</summary><div id="records-table" class="table-wrap"></div></details>
+<p id="data-status" class="note"></p><p class="note">Source: Ex6_TVdata_withStar.csv from Exercise 6.1. Each row is a TV record in the teaching dataset, not a sale or measured household consumption. W6 TV Data.knwf references tv_2026_02_15.csv, although Canvas describes January 2026 data. The full range, including outliers, is retained. Points can overlap; filter by technology or use the record list. Star ratings are ordered ratings, not a linear ratio scale of energy consumption.</p></section></main><footer><p>Teaching snapshots, not live data. <a href="README-Demo-2.md">README and setup</a> · <a href="VAN-DAP.md">Oral preparation</a></p></footer>
+<!-- Load local D3 first, shared helpers second, then exercise scripts. Lab 6 loads its CSV last. -->
+<script src="shared/d3.v7.min.js"></script><script src="shared/chart.js"></script><script src="Lab-4/bar-chart.js"></script><script src="Lab-5/bar-chart.js"></script><script src="Lab-5/line-chart.js"></script><script src="Lab-5/donut-chart.js"></script><script src="Lab-6/shared-constants.js"></script><script src="Lab-6/histogram.js"></script><script src="Lab-6/scatterplot.js"></script><script src="Lab-6/interactions.js"></script><script src="Lab-6/load-data.js"></script></body></html>

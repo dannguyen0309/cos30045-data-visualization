@@ -1,0 +1,43 @@
+{
+  "source_rows": 4724,
+  "available_australia": 4508,
+  "brand_groups": 25,
+  "brand_registration_total": 4240,
+  "expected_size_counts": {
+    "2. Medium (44-65 in)": 2059,
+    "3. Large (>=66 in)": 1338,
+    "1. Small (<=43 in)": 1111
+  },
+  "expected_55inch": {
+    "LCD (LED)": {
+      "n": 585,
+      "mean_kWh_year": 369.74188034188035
+    },
+    "OLED": {
+      "n": 68,
+      "mean_kWh_year": 358.7352941176471
+    },
+    "LCD": {
+      "n": 83,
+      "mean_kWh_year": 337.1927710843373
+    }
+  },
+  "price_years": 27,
+  "tv_rows": 4233,
+  "technology_counts": {
+    "LED": 3492,
+    "LCD": 455,
+    "OLED": 286
+  },
+  "energy_extent": [
+    56.0,
+    2652.0
+  ],
+  "files_sha256": {
+    "Lab-4\\data\\tvBrandCount.csv": "d43b307e5c7934ae078f4bf53b50335c857432bb6bce6b12c8ef7de083a67b45",
+    "Lab-5\\data\\ARE_Spot_Prices.csv": "5696caa8e3b05891c7b6dc13dff63226800925285c40a148e0a5d7efe7411702",
+    "Lab-6\\data\\Ex6_TVdata_withStar.csv": "ffd4e7eb94a3bc957d20b59a24a222f9fdfb975eb0403bef2413b6b060924d61"
+  },
+  "pending": [],
+  "note": "Independent calculations verify exports; they do not replace KNIME execution evidence."
+}

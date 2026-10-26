@@ -1,0 +1,45 @@
+[
+  {
+    "workflow": "Lab/Lab-4/KNIME-Exercise-4",
+    "saved_node_states": {
+      "Column Filter (#4)": "EXECUTED",
+      "Column Renamer (#17)": "EXECUTED",
+      "CSV Reader (#1)": "EXECUTED",
+      "CSV Writer (#18)": "EXECUTED",
+      "GroupBy (#10)": "EXECUTED",
+      "Nominal Value Row Filter (#7)": "EXECUTED",
+      "Nominal Value Row Filter (#9)": "EXECUTED",
+      "Row Filter (#16)": "EXECUTED",
+      "String Cleaner (#5)": "EXECUTED",
+      "String Replacer (#6)": "EXECUTED"
+    },
+    "csv_files": {
+      "tvBrandCount.csv": "d43b307e5c7934ae078f4bf53b50335c857432bb6bce6b12c8ef7de083a67b45",
+      "tv_2026_02_15.csv": "45f65274de0a45a0cc6fb030a259c9cc4964c95b5d4e795949d654fc9e069039"
+    },
+    "provenance": "User executed and saved in KNIME desktop; Codex inspected saved states, copied actual CSV outputs and independently checked numbers."
+  },
+  {
+    "workflow": "Lab/Lab-5/KNIME-Exercise-5",
+    "saved_node_states": {
+      "55 inch energy GroupBy (#51)": "EXECUTED",
+      "55 inch filter (#50)": "EXECUTED",
+      "Australian TVs (#28)": "EXECUTED",
+      "Available TVs (#27)": "EXECUTED",
+      "Column Filter (#15)": "EXECUTED",
+      "CSV Reader (#13)": "EXECUTED",
+      "Energy CSV Writer (#52)": "EXECUTED",
+      "Expression (#18)": "EXECUTED",
+      "Number Rounder (#19)": "EXECUTED",
+      "Size category (#32)": "EXECUTED",
+      "Size CSV Writer (#54)": "EXECUTED",
+      "Size GroupBy (#53)": "EXECUTED"
+    },
+    "csv_files": {
+      "energy55.csv": "3dc1bad933526de337f89a71f1d98bd34bc3984becc6cd2e2e9a6cf33727360a",
+      "sizeCounts.csv": "fca03a1c005c97a1da3fb2b232f82d376b9b2e5731364d924d00ab2199509cd5",
+      "tv_2026_02_15.csv": "45f65274de0a45a0cc6fb030a259c9cc4964c95b5d4e795949d654fc9e069039"
+    },
+    "provenance": "User executed and saved in KNIME desktop; Codex inspected saved states, copied actual CSV outputs and independently checked numbers."
+  }
+]
