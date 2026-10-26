@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 440" role="img" aria-labelledby="title desc">
+<title id="title">Initial house</title><desc id="desc">A grey rectangular house, red triangular roof, two windows and a lawn.</desc>
+<rect width="720" height="440" fill="#e6f2f8"/><rect y="320" width="720" height="120" fill="#a8bd91"/>
+<rect x="220" y="180" width="280" height="180" fill="#c9c9c9" stroke="#344957" stroke-width="2"/>
+<polygon points="200,180 360,70 520,180" fill="#b55543" stroke="#344957" stroke-width="2"/>
+<rect x="330" y="260" width="60" height="100" fill="#72533c"/>
+<g fill="#bce4f3" stroke="#344957" stroke-width="2"><rect x="250" y="215" width="48" height="48"/><rect x="422" y="215" width="48" height="48"/></g>
+<text x="24" y="40" font-family="sans-serif" font-size="22">Initial version</text></svg>
