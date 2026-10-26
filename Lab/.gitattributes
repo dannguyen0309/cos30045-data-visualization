@@ -1,0 +1,4 @@
+# Preserve binary artifacts byte for byte on Windows checkouts.
+*.pdf binary
+*.png binary
+*.knwf binary
