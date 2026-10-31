@@ -51,3 +51,17 @@ The student reports the classroom demonstration is complete and authorised Verce
 - Revised the three declarations to distinguish the original implementation from post-demo assistance. Rendered and visually inspected all three one-page PDFs: readable, with no clipping.
 
 Still manual: a genuine screenshot of the revised drawing together with the expanded Developer Tools DOM; exact 200% zoom; real touch hardware and screen-reader testing. Attempted zoom key commands did not change the observed browser scale, so a 200% check is not claimed. Reduced-motion behaviour is covered by automated preference stubs, not an OS-level browser preference check.
+
+
+## Production deployment verification - 1 November 2026
+
+- Production: https://cos30045-demonstration-2.vercel.app/
+- Project: `cos30045-demonstration-2`; separate project, Root Directory `Lab`, preset Other.
+- Initial production source: `a38c448`, pushed to `main` with explicit student approval.
+- Vercel displayed Deployed to Production. The initial browser security checkpoint completed; the public website loaded in Edge.
+- The home page rendered six chart SVG images plus the scatterplot group. The four direct exercise pages and sources page loaded. CSV rendering was checked after loading, not immediately after navigation.
+- Brand page: 25 bars and 4,240 registrations. Multi-chart page: three charts, 736 rounded-55-inch records, 4,508 size-group records and 27/27 valid annual price rows.
+- Live filters: LCD 455, LED 3,492, OLED 286 and All 4,233. Each histogram frequency sum equalled the scatterplot point count. Each retained one histogram SVG and one scatterplot SVG. No role-alert errors were present.
+- Actual public DOM results: `deployment-checks.json`.
+- Re-ran data verification and chart assertions: PASS.
+- No Canvas upload or submission was performed. Real Developer Tools evidence remains manual; 200% zoom and screen reader checks remain unverified.

@@ -1,38 +1,41 @@
 # Demonstration 2 submission checklist
 
-Local demonstration comes first. Do not submit until the unchecked items are resolved. Canvas allows one attempt.
+The student reports the classroom demonstration is complete. Canvas allows one submission attempt. Review the files and links before submitting.
 
-## Local website
+## Completed
 
-- [x] One website with navigation for all four exercises: `http://127.0.0.1:8004/`.
-- [x] Original datasets preserved and local D3 included.
-- [x] Record completed data/browser checks and remaining limitations in `evidence/TEST-RESULTS.md`.
-- [ ] Capture the real SVG and expanded DOM together in Developer Tools.
-- [x] Verify and save the executed KNIME exports and their CSV outputs.
+- [x] Refine the shared website and retain navigation to all four exercises.
+- [x] Preserve original datasets, local D3 and executed KNIME workflows with CSV outputs.
+- [x] Verify data, charts, mobile layout and coordinated filters; record actual checks in `evidence/TEST-RESULTS.md`.
+- [x] Commit and push Demo 2 to the authorised personal repository on `main`.
+- [x] Deploy the separate Vercel project and verify the public website and all four technology filters.
+- [x] Prepare three separate revised GenAI declaration PDFs.
+- [x] Prepare `SUBMISSION-COMMENT.txt` with the eight submission links.
+
+## Before submission
+
+- [ ] Capture the real SVG and expanded DOM together in Developer Tools. The coordinate diagram is not this screenshot.
 - [ ] Read the three declarations and confirm they accurately describe your use of AI.
-- [ ] Practise explaining and changing the submitted code without reading comments.
+- [ ] Confirm Vercel is accepted for Demo 2: Canvas names Mercury. The student selected Vercel; Demo 1 permission alone does not independently confirm Demo 2 permission.
+- [ ] Paste `SUBMISSION-COMMENT.txt` into the Canvas submission comment.
+- [ ] Attach all three declaration PDFs as separate document uploads.
+- [ ] Check files and links, then submit once. The agent has not submitted Canvas.
 
-## Source links after an authorised push
+## GitHub source links
 
-These paths are prepared from the existing repository remote. They will contain the new files only after a push.
+1. [Exercise 4.1 - SVG house](https://github.com/dannguyen0309/cos30045-data-visualization/blob/main/Lab/Lab-4/index.html)
+2. [Exercise 4.3-4.6 - Bar chart](https://github.com/dannguyen0309/cos30045-data-visualization/blob/main/Lab/Lab-4/bar.html)
+3. [Exercise 5 - Multi-chart page](https://github.com/dannguyen0309/cos30045-data-visualization/blob/main/Lab/Lab-5/index.html)
+4. [Exercise 6 - Interactivity](https://github.com/dannguyen0309/cos30045-data-visualization/blob/main/Lab/Lab-6/index.html)
 
-1. [SVG house](https://github.com/dannguyen0309/cos30045-data-visualization/blob/main/Lab/Lab-4/index.html)
-2. [Bar chart](https://github.com/dannguyen0309/cos30045-data-visualization/blob/main/Lab/Lab-4/bar.html)
-3. [Multi-chart](https://github.com/dannguyen0309/cos30045-data-visualization/blob/main/Lab/Lab-5/index.html)
-4. [Interactivity](https://github.com/dannguyen0309/cos30045-data-visualization/blob/main/Lab/Lab-6/index.html)
+The tutor's existing instruction to use this personal repository is retained.
 
-Confirm the repository branch before using these links. The tutor's existing instruction to use this personal repository is retained.
+## Live website links
 
-## Mercury links — pending hosting
-
-No Mercury address has been supplied or verified. Record four real URLs after uploading the complete Lab website, including `shared/` and each `data/` folder:
-
-1. SVG house: pending.
-2. Bar chart: pending.
-3. Multi-chart: pending.
-4. Interactivity: pending.
-
-No deployment or submission was authorised in this session. A localhost URL is suitable for the local demonstration but cannot replace the required Mercury submission links.
+1. [Exercise 4.1 - SVG house](https://cos30045-demonstration-2.vercel.app/Lab-4/index.html)
+2. [Exercise 4.3-4.6 - Bar chart](https://cos30045-demonstration-2.vercel.app/Lab-4/bar.html)
+3. [Exercise 5 - Multi-chart page](https://cos30045-demonstration-2.vercel.app/Lab-5/index.html)
+4. [Exercise 6 - Interactivity](https://cos30045-demonstration-2.vercel.app/Lab-6/index.html)
 
 ## Separate document uploads
 
@@ -40,4 +43,4 @@ No deployment or submission was authorised in this session. A localhost URL is s
 - `output/pdf/GenAI-Declaration_Exercise-5.pdf`
 - `output/pdf/GenAI-Declaration_Exercise-6.pdf`
 
-Upload the declarations as separate documents, as required by Canvas. A README declaration alone is insufficient.
+A README declaration alone does not meet the separate-upload requirement.

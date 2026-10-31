@@ -1,0 +1,56 @@
+{
+  "date": "2026-11-01",
+  "production": "https://cos30045-demonstration-2.vercel.app",
+  "sourceCommit": "a38c448",
+  "filters": [
+    {
+      "alerts": 0,
+      "histograms": 1,
+      "points": 455,
+      "scatterplots": 1,
+      "status": "LCD: 455 records.",
+      "total": 455
+    },
+    {
+      "alerts": 0,
+      "histograms": 1,
+      "points": 3492,
+      "scatterplots": 1,
+      "status": "LED: 3,492 records.",
+      "total": 3492
+    },
+    {
+      "alerts": 0,
+      "histograms": 1,
+      "points": 286,
+      "scatterplots": 1,
+      "status": "OLED: 286 records.",
+      "total": 286
+    },
+    {
+      "alerts": 0,
+      "histograms": 1,
+      "points": 4233,
+      "scatterplots": 1,
+      "status": "All: 4,233 records.",
+      "total": 4233
+    }
+  ],
+  "multiChart": {
+    "alerts": 0,
+    "arcs": 20,
+    "bars": 3,
+    "charts": 3,
+    "points": 28,
+    "statuses": [
+      "736 55-inch registrations. Means are grouped by technology; this comparison does not establish causation.",
+      "Total 4,508 registrations. Small ≤43; Medium 44–65; Large ≥66 inches, after rounding.",
+      "27/27 valid rows; 0 rows excluded. Average of Queensland, NSW, Victoria and SA; excludes Tasmania and Snowy."
+    ]
+  },
+  "brandChart": {
+    "alerts": 0,
+    "bars": 25,
+    "status": "25 brand; 4,240 records in brands with at least 20 registrations."
+  }
+}

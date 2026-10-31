@@ -72,6 +72,8 @@ Vercel hosting for Demonstration 2 is authorised by the student. The Canvas brie
 
 ## Website refinement and deployment
 
+Production website: https://cos30045-demonstration-2.vercel.app/. Deployed on 1 November 2026 from commit `a38c448`; all four technology filters were verified on the public site. See [SUBMISSION-COMMENT.txt](SUBMISSION-COMMENT.txt) for the four source and four hosted links.
+
 The interface uses a shared teal and cream palette, a compact navigation bar, a responsive two-column layout for the Lab 5 and Lab 6 charts, readable labels, direct takeaways and collapsible data tables. `methodology.html` carries the full source and caveat notes. No framework or chart dependency was added.
 
 The browser-captured initial house and a vector coordinate diagram are embedded in Exercise 4.1. The diagram is labelled as a diagram, not a screenshot of Developer Tools. A real screenshot of the drawing with the expanded Developer Tools DOM remains a manual evidence item.
