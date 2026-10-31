@@ -1,12 +1,182 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Explore TVs with filters · COS30045</title><link rel="stylesheet" href="../shared/base.css"><link rel="icon" href="data:,"></head><body><a class="skip" href="#main">Skip to content</a><header><a href="../index.html"><strong>COS30045 · Demonstration 2</strong></a><nav aria-label="Exercises"><a href="../index.html#house">4.1 SVG house</a><a href="../index.html#brands">4.3–4.7 Bar chart</a><a href="../index.html#multichart">5 Multi-chart</a><a href="../index.html#interactivity">6 Interactivity</a></nav></header><main id="main"><p class="eyebrow">Week 4–6 · Nguyen Ngoc Lam Dan · 104992198</p><h1>Explore TVs with filters</h1><p class="lead">SVG, data and interaction with D3 v7. All exercises in one website.</p><noscript>Enable JavaScript to view the charts. CSV files remain available in the data folders.</noscript><section id="interactivity"><p class="eyebrow">Exercise 6 · Interactivity</p><h2>One technology filter updates both charts</h2>
-<div id="filters" class="filters" role="group" aria-label="Select screen technology"></div><p id="selection-status" class="status" role="status" aria-live="polite" aria-atomic="true">Loading TV data…</p>
-<figure><h3>Annual energy distribution</h3><div id="histogram" class="chart"></div><figcaption>Bin boundaries and both axis domains stay fixed when filtering. Frequency counts records in each interval. Bins include the lower bound and exclude the upper bound; the last bin includes its upper bound.</figcaption></figure>
-<details><summary>Histogram frequency table</summary><div id="bins-table" class="table-wrap"></div></details>
-<figure><h3>Star rating and annual energy</h3><ul id="tech-legend" class="legend"></ul><div id="scatterplot" class="chart"></div>
-<p id="tooltip" class="tooltip" role="status">Select a point or record to inspect its values.</p>
-<label for="record-select">Inspect a record (keyboard and touch accessible)</label><select id="record-select" style="display:block;width:100%;min-height:44px;font:inherit;margin-top:8px" disabled></select>
-<figcaption>Hover, tap or focus to inspect a point. Use ←/→ to move between points while the chart has focus. The record list also reaches overlapping points. The table below contains the same filtered data.</figcaption></figure>
-<details><summary>Filtered TV records</summary><div id="records-table" class="table-wrap"></div></details>
-<p id="data-status" class="note"></p><p class="note">Source: Ex6_TVdata_withStar.csv from Exercise 6.1. Each row is a TV record in the teaching dataset, not a sale or measured household consumption. W6 TV Data.knwf references tv_2026_02_15.csv, although Canvas describes January 2026 data. The full range, including outliers, is retained. Points can overlap; filter by technology or use the record list. Star ratings are ordered ratings, not a linear ratio scale of energy consumption.</p></section></main><footer><p>Teaching snapshots, not live data. <a href="../README-Demo-2.md">README and setup</a> · <a href="../VAN-DAP.md">Oral preparation</a></p></footer>
-<!-- Load local D3 first, shared helpers second, then exercise scripts. Lab 6 loads its CSV last. -->
-<script src="../shared/d3.v7.min.js"></script><script src="../shared/chart.js"></script><script src="../Lab-6/shared-constants.js"></script><script src="../Lab-6/histogram.js"></script><script src="../Lab-6/scatterplot.js"></script><script src="../Lab-6/interactions.js"></script><script src="../Lab-6/load-data.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+   Explore TVs with filters · COS30045
+  </title>
+  <link href="../shared/base.css?v=3" rel="stylesheet"/>
+  <link href="data:," rel="icon"/>
+  <meta content="COS30045 Demonstration 2: SVG drawing, D3 charts and coordinated TV energy exploration. Teaching snapshots with sources, accessible tables and methods." name="description"/>
+ </head>
+ <body>
+  <a class="skip" href="#main">
+   Skip to content
+  </a>
+  <header>
+   <div class="header-inner">
+    <a class="brand" href="../index.html">
+     <span aria-hidden="true" class="brand-mark">
+      dv.
+     </span>
+     <span>
+      Data, drawn.
+      <small>
+       COS30045 / Demonstration 2
+      </small>
+     </span>
+    </a>
+    <nav aria-label="Exercises">
+     <a href="../Lab-4/index.html">
+      01 / SVG house
+     </a>
+     <a href="../Lab-4/bar.html">
+      02 / Bar chart
+     </a>
+     <a href="../Lab-5/index.html">
+      03 / Multi-chart
+     </a>
+     <a aria-current="page" href="../Lab-6/index.html">
+      04 / Interactivity
+     </a>
+    </nav>
+   </div>
+  </header>
+  <main id="main">
+   <div class="page-intro">
+    <div>
+     <p class="eyebrow">
+      COS30045 · Demonstration 2
+     </p>
+     <h1>
+      Explore TVs with filters
+     </h1>
+     <p class="lead">
+      An exercise in SVG, evidence and interaction.
+     </p>
+    </div>
+    <p class="meta">
+     Nguyen Ngoc Lam Dan
+     <br/>
+     104992198 · Weeks 04—06
+    </p>
+   </div>
+   <section class="chapter" id="interactivity">
+    <div class="chapter-heading">
+     <div>
+      <p class="eyebrow">
+       Exercise 6 · Interactivity
+      </p>
+      <h2>
+       One technology filter updates both charts
+      </h2>
+     </div>
+     <span aria-hidden="true" class="chapter-index">
+      04
+     </span>
+    </div>
+    <div class="filter-toolbar">
+     <div aria-label="Select screen technology" class="filters" id="filters" role="group">
+     </div>
+     <p aria-atomic="true" aria-live="polite" class="status" id="selection-status" role="status">
+      Loading TV data…
+     </p>
+    </div>
+    <div class="chapter-grid">
+     <article class="chart-panel">
+      <h3>
+       Annual energy distribution
+      </h3>
+      <figure>
+       <div class="chart" id="histogram">
+       </div>
+       <figcaption>
+        Bin boundaries and both axis domains stay fixed when filtering. Frequency counts records in each interval. Bins include the lower bound and exclude the upper bound; the last bin includes its upper bound.
+       </figcaption>
+      </figure>
+      <details>
+       <summary>
+        Histogram frequency table
+       </summary>
+       <div class="table-wrap" id="bins-table">
+       </div>
+      </details>
+     </article>
+     <article class="chart-panel">
+      <h3>
+       Star rating and annual energy
+      </h3>
+      <figure>
+       <ul class="legend" id="tech-legend">
+       </ul>
+       <div class="chart" id="scatterplot">
+       </div>
+       <p class="tooltip" id="tooltip" role="status">
+        Select a point or record to inspect its values.
+       </p>
+       <label for="record-select">
+        Inspect a record (keyboard and touch accessible)
+       </label>
+       <select disabled="" id="record-select">
+       </select>
+       <figcaption>
+        Hover, tap or focus to inspect a point. Use ←/→ to move between points while the chart has focus. The record list also reaches overlapping points. The table below contains the same filtered data.
+       </figcaption>
+      </figure>
+      <details>
+       <summary>
+        Filtered TV records
+       </summary>
+       <div class="table-wrap" id="records-table">
+       </div>
+      </details>
+     </article>
+    </div>
+    <p class="source-note" id="data-status">
+    </p>
+    <p class="source-note">
+     Source: Ex6_TVdata_withStar.csv from Exercise 6.1. Each row is a TV record in the teaching dataset, not a sale or measured household consumption. W6 TV Data.knwf references tv_2026_02_15.csv, although Canvas describes January 2026 data. The full range, including outliers, is retained. Points can overlap; filter by technology or use the record list. Star ratings are ordered ratings, not a linear ratio scale of energy consumption.
+    </p>
+   </section>
+  </main>
+  <footer>
+   <p>
+    <strong>
+     Data, drawn.
+    </strong>
+    <br/>
+    COS30045 · Nguyen Ngoc Lam Dan · 104992198
+   </p>
+   <p>
+    <a href="../methodology.html">
+     Sources &amp; methods
+    </a>
+    <a href="../output/pdf/GenAI-Declaration_Exercise-4.pdf">
+     AI declaration · 4
+    </a>
+    <a href="../output/pdf/GenAI-Declaration_Exercise-5.pdf">
+     5
+    </a>
+    <a href="../output/pdf/GenAI-Declaration_Exercise-6.pdf">
+     6
+    </a>
+   </p>
+  </footer>
+  <!-- Load local D3 first, shared helpers second, then exercise scripts. Lab 6 loads its CSV last. -->
+  <script src="../shared/d3.v7.min.js">
+  </script>
+  <script src="../shared/chart.js?v=2">
+  </script>
+  <script src="../Lab-6/shared-constants.js?v=2">
+  </script>
+  <script src="../Lab-6/histogram.js?v=2">
+  </script>
+  <script src="../Lab-6/scatterplot.js?v=2">
+  </script>
+  <script src="../Lab-6/interactions.js?v=2">
+  </script>
+  <script src="../Lab-6/load-data.js?v=2">
+  </script>
+ </body>
+</html>

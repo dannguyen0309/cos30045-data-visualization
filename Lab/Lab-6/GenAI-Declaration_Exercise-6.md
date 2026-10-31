@@ -10,7 +10,7 @@ COS30045 Data Visualisation - Demonstration 2, Exercise 6
 
 ## Date
 
-26 October 2026
+1 November 2026 (revised after the classroom demonstration)
 
 ## Tool and purpose
 
@@ -20,10 +20,14 @@ I used OpenAI Codex (GPT-6-based coding agent) to help implement the Week 4-6 ex
 
 Codex generated the CSV loader, histogram, scatterplot, screen-technology filters, record-count summary, tooltip and accessible record selector. It added the extension in which one filter updates both charts while keeping bins and domains fixed. It generated automated checks for missing numeric values, frequency totals, bin boundaries, domain endpoints, empty input and retention of the outlier, and performed browser interaction and layout checks.
 
+## After the demonstration
+
+Following the classroom demonstration, Codex refined the website layout, typography, chart presentation, source notes and responsive behaviour, prepared a coordinate diagram and browser evidence, updated documents, and configured Vercel hosting at my request. The original datasets and analytical definitions were retained.
+
 ## Review and verification
 
 Codex inspected the course instructions and supplied files, generated code and workflow settings, and ran the checks recorded in evidence/TEST-RESULTS.md. Its changes include explicit numeric parsing, source caveats, labels and accessibility support. Only checks actually performed are recorded. No participant feedback, Developer Tools capture or KNIME execution evidence was invented.
 
 ## Responsibility and limits
 
-The SVG, website code, tests, workflow adaptations and this declaration include substantial AI assistance. I must review the submitted work and be able to explain and modify it during the oral demonstration. The AI-generated material is not a claim that I independently wrote every line, completed every manual step or demonstrated personal understanding. Any outstanding checks are identified in the README and submission checklist.
+The SVG, website code, tests, workflow adaptations and this declaration include substantial AI assistance. I completed the classroom demonstration, as reported in this session. This declaration does not claim that I independently wrote every line or that an automated check assessed my understanding. Outstanding manual checks are identified in the submission checklist.

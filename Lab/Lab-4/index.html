@@ -1,50 +1,382 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Drawing a house with SVG · COS30045</title><link rel="stylesheet" href="../shared/base.css"><link rel="icon" href="data:,"></head><body><a class="skip" href="#main">Skip to content</a><header><a href="../index.html"><strong>COS30045 · Demonstration 2</strong></a><nav aria-label="Exercises"><a href="../index.html#house">4.1 SVG house</a><a href="../index.html#brands">4.3–4.7 Bar chart</a><a href="../index.html#multichart">5 Multi-chart</a><a href="../index.html#interactivity">6 Interactivity</a></nav></header><main id="main"><p class="eyebrow">Week 4–6 · Nguyen Ngoc Lam Dan · 104992198</p><h1>Drawing a house with SVG</h1><p class="lead">SVG, data and interaction with D3 v7. All exercises in one website.</p><noscript>Enable JavaScript to view the charts. CSV files remain available in the data folders.</noscript><section id="house"><p class="eyebrow">Exercise 4.1 · SVG</p><h2>Building a house with coordinates</h2>
-<p>The origin (0,0) is at the top left. x increases to the right; y increases downward. The canvas uses viewBox 0 0 720 440.</p>
-<figure id="house-final"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 440" role="img" aria-labelledby="title desc">
-<title id="title">House and garden</title><desc id="desc">A yellow house with a teal roof, grouped windows, a curved garden path, a tree, sun and fence.</desc>
-<rect width="720" height="440" fill="#e6f2f8"/><rect y="320" width="720" height="120" fill="#a8bd91"/>
-<!-- circle: cx/cy locate the sun centre; r sets its radius. -->
-<circle cx="615" cy="75" r="38" fill="#f1bd50"/>
-<!-- ellipse: rx and ry are the horizontal and vertical radii. -->
-<ellipse cx="120" cy="95" rx="70" ry="24" fill="white"/>
-<rect x="434" y="92" width="28" height="80" fill="#8d5945" stroke="#344957" stroke-width="2"/>
-<!-- rect: x/y locate the top-left corner; width/height set the wall size. -->
-<rect x="220" y="180" width="280" height="180" fill="#f1dca8" stroke="#344957" stroke-width="2"/>
-<!-- polygon: the listed vertices form a closed roof shape. -->
-<polygon points="200,180 360,70 520,180" fill="#286b75" stroke="#344957" stroke-width="3"/>
-<rect x="330" y="260" width="60" height="100" fill="#72533c"/><circle cx="377" cy="314" r="4" fill="#f1bd50"/>
-<!-- g: children inherit fill and stroke; translate moves their local origin. -->
-<g id="windows" fill="#bce4f3" stroke="#344957" stroke-width="3" transform="translate(250,210)">
-<g><rect width="48" height="48"/><line x1="24" y1="0" x2="24" y2="48"/><line x1="0" y1="24" x2="48" y2="24"/></g>
-<!-- Nested translate adds 172 to the outer group x position for the second window. -->
-<g transform="translate(172,0)"><rect width="48" height="48"/><line x1="24" y1="0" x2="24" y2="48"/><line x1="0" y1="24" x2="48" y2="24"/></g></g>
-<!-- path: M moves to the start; Q draws a quadratic curve through a control point. -->
-<path d="M360 360 Q300 395 380 440" fill="none" stroke="#dfc8a5" stroke-width="32"/>
-<rect x="95" y="245" width="20" height="110" fill="#72533c"/><ellipse cx="105" cy="235" rx="58" ry="70" fill="#3b7651"/>
-<!-- polyline: connect the listed points without automatically closing the shape. -->
-<polyline points="550,370 550,315 575,295 600,315 600,370 625,370 625,315 650,295 675,315 675,370" fill="none" stroke="#faf7ee" stroke-width="8"/>
-<!-- line: x1/y1 and x2/y2 specify the two endpoints. -->
-<line x1="540" y1="345" x2="690" y2="345" stroke="#faf7ee" stroke-width="8"/>
-<!-- text: x/y locate the text baseline, rather than its top-left corner. -->
-<text x="24" y="40" font-family="sans-serif" font-size="22" fill="#163247">A quiet garden</text>
-</svg>
-<figcaption>Revised version: new wall and roof colours, a thicker roof stroke and windows moved up by 5 units. Added a chimney, curved path, tree and fence.</figcaption></figure>
-<details><summary>View the initial version</summary><figure id="house-initial"><img src="../Lab-4/house-before.svg" width="720" height="440" alt="Initial house with grey walls and a red roof, before adding the path, tree and fence"><figcaption>The initial version is preserved in house-before.svg.</figcaption></figure></details>
-<figure id="coordinates"><h3>Reading the coordinates in the revised drawing</h3><div class="table-wrap"><table><caption>Coordinates use the viewBox system, rather than fixed screen pixels</caption><thead><tr><th>SVG</th><th>Example</th><th>How to read it</th></tr></thead><tbody>
-<tr><td>rect</td><td>House walls</td><td>x=220, y=180; width=280, height=180</td></tr>
-<tr><td>circle</td><td>Sun</td><td>cx=615, cy=75; r=38</td></tr>
-<tr><td>ellipse</td><td>Cloud</td><td>cx=120, cy=95; rx=70, ry=24</td></tr>
-<tr><td>line</td><td>Fence rail</td><td>(540,345) to (690,345)</td></tr>
-<tr><td>polygon</td><td>Roof</td><td>(200,180), (360,70), (520,180); automatically closed</td></tr>
-<tr><td>polyline</td><td>Fence tops</td><td>Starts at (550,370), through (550,315), (575,295)…; remains open</td></tr>
-<tr><td>path</td><td>Garden path</td><td>M360 360; Q300 395 380 440. Q uses control point (300,395) and endpoint (380,440).</td></tr>
-<tr><td>text</td><td>Garden title</td><td>x=24, y=40 positions the start of the text baseline</td></tr>
-<tr><td>g + translate</td><td>Two windows</td><td>Shared group: translate(250,210). The second window uses translate(172,0). Their top-left corners are (250,210) and (422,210).</td></tr>
-</tbody></table></div></figure>
-<details><summary>Window group: inherited styling</summary><pre>&lt;g id="windows" fill="#bce4f3" stroke="#344957"
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+   Drawing a house with SVG · COS30045
+  </title>
+  <link href="../shared/base.css?v=3" rel="stylesheet"/>
+  <link href="data:," rel="icon"/>
+  <meta content="COS30045 Demonstration 2: SVG drawing, D3 charts and coordinated TV energy exploration. Teaching snapshots with sources, accessible tables and methods." name="description"/>
+ </head>
+ <body>
+  <a class="skip" href="#main">
+   Skip to content
+  </a>
+  <header>
+   <div class="header-inner">
+    <a class="brand" href="../index.html">
+     <span aria-hidden="true" class="brand-mark">
+      dv.
+     </span>
+     <span>
+      Data, drawn.
+      <small>
+       COS30045 / Demonstration 2
+      </small>
+     </span>
+    </a>
+    <nav aria-label="Exercises">
+     <a aria-current="page" href="../Lab-4/index.html">
+      01 / SVG house
+     </a>
+     <a href="../Lab-4/bar.html">
+      02 / Bar chart
+     </a>
+     <a href="../Lab-5/index.html">
+      03 / Multi-chart
+     </a>
+     <a href="../Lab-6/index.html">
+      04 / Interactivity
+     </a>
+    </nav>
+   </div>
+  </header>
+  <main id="main">
+   <div class="page-intro">
+    <div>
+     <p class="eyebrow">
+      COS30045 · Demonstration 2
+     </p>
+     <h1>
+      Drawing a house with SVG
+     </h1>
+     <p class="lead">
+      An exercise in SVG, evidence and interaction.
+     </p>
+    </div>
+    <p class="meta">
+     Nguyen Ngoc Lam Dan
+     <br/>
+     104992198 · Weeks 04—06
+    </p>
+   </div>
+   <section class="chapter" id="house">
+    <div class="chapter-heading">
+     <div>
+      <p class="eyebrow">
+       Exercise 4.1 · SVG
+      </p>
+      <h2>
+       Building a house with coordinates
+      </h2>
+     </div>
+     <span aria-hidden="true" class="chapter-index">
+      01
+     </span>
+    </div>
+    <div class="house-intro">
+     <div>
+      <p class="section-description">
+       The origin (0,0) is at the top left. x increases to the right; y increases downward. The canvas uses viewBox 0 0 720 440.
+      </p>
+      <ul class="house-facts">
+       <li>
+        <strong>
+         8 primitives
+        </strong>
+        One scene built from basic SVG shapes.
+       </li>
+       <li>
+        <strong>
+         One coordinate system
+        </strong>
+        x moves right; y moves down.
+       </li>
+       <li>
+        <strong>
+         Shared styling
+        </strong>
+        Two windows, one translated group.
+       </li>
+      </ul>
+     </div>
+     <figure id="house-final">
+      <svg aria-labelledby="title desc" role="img" viewbox="0 0 720 440" xmlns="http://www.w3.org/2000/svg">
+       <title id="title">
+        House and garden
+       </title>
+       <desc id="desc">
+        A yellow house with a teal roof, grouped windows, a curved garden path, a tree, sun and fence.
+       </desc>
+       <rect fill="#e6f2f8" height="440" width="720">
+       </rect>
+       <rect fill="#a8bd91" height="120" width="720" y="320">
+       </rect>
+       <!-- circle: cx/cy locate the sun centre; r sets its radius. -->
+       <circle cx="615" cy="75" fill="#f1bd50" r="38">
+       </circle>
+       <!-- ellipse: rx and ry are the horizontal and vertical radii. -->
+       <ellipse cx="120" cy="95" fill="white" rx="70" ry="24">
+       </ellipse>
+       <rect fill="#8d5945" height="80" stroke="#344957" stroke-width="2" width="28" x="434" y="92">
+       </rect>
+       <!-- rect: x/y locate the top-left corner; width/height set the wall size. -->
+       <rect fill="#f1dca8" height="180" stroke="#344957" stroke-width="2" width="280" x="220" y="180">
+       </rect>
+       <!-- polygon: the listed vertices form a closed roof shape. -->
+       <polygon fill="#286b75" points="200,180 360,70 520,180" stroke="#344957" stroke-width="3">
+       </polygon>
+       <rect fill="#72533c" height="100" width="60" x="330" y="260">
+       </rect>
+       <circle cx="377" cy="314" fill="#f1bd50" r="4">
+       </circle>
+       <!-- g: children inherit fill and stroke; translate moves their local origin. -->
+       <g fill="#bce4f3" id="windows" stroke="#344957" stroke-width="3" transform="translate(250,210)">
+        <g>
+         <rect height="48" width="48">
+         </rect>
+         <line x1="24" x2="24" y1="0" y2="48">
+         </line>
+         <line x1="0" x2="48" y1="24" y2="24">
+         </line>
+        </g>
+        <!-- Nested translate adds 172 to the outer group x position for the second window. -->
+        <g transform="translate(172,0)">
+         <rect height="48" width="48">
+         </rect>
+         <line x1="24" x2="24" y1="0" y2="48">
+         </line>
+         <line x1="0" x2="48" y1="24" y2="24">
+         </line>
+        </g>
+       </g>
+       <!-- path: M moves to the start; Q draws a quadratic curve through a control point. -->
+       <path d="M360 360 Q300 395 380 440" fill="none" stroke="#dfc8a5" stroke-width="32">
+       </path>
+       <rect fill="#72533c" height="110" width="20" x="95" y="245">
+       </rect>
+       <ellipse cx="105" cy="235" fill="#3b7651" rx="58" ry="70">
+       </ellipse>
+       <!-- polyline: connect the listed points without automatically closing the shape. -->
+       <polyline fill="none" points="550,370 550,315 575,295 600,315 600,370 625,370 625,315 650,295 675,315 675,370" stroke="#faf7ee" stroke-width="8">
+       </polyline>
+       <!-- line: x1/y1 and x2/y2 specify the two endpoints. -->
+       <line stroke="#faf7ee" stroke-width="8" x1="540" x2="690" y1="345" y2="345">
+       </line>
+       <!-- text: x/y locate the text baseline, rather than its top-left corner. -->
+       <text fill="#163247" font-family="sans-serif" font-size="22" x="24" y="40">
+        A quiet garden
+       </text>
+      </svg>
+      <figcaption>
+       Revised version: new wall and roof colours, a thicker roof stroke and windows moved up by 5 units. Added a chimney, curved path, tree and fence.
+      </figcaption>
+     </figure>
+    </div>
+    <details>
+     <summary>
+      View the initial version
+     </summary>
+     <figure id="house-initial">
+      <img alt="Initial house with grey walls and a red roof, before adding the path, tree and fence" height="440" src="../Lab-4/house-before.svg" width="720"/>
+      <figcaption>
+       The initial version is preserved in house-before.svg.
+      </figcaption>
+     </figure>
+    </details>
+    <details>
+     <summary>
+      Coordinate reference · all eight primitives
+     </summary>
+     <figure id="coordinates">
+      <h3>
+       Reading the coordinates in the revised drawing
+      </h3>
+      <div class="table-wrap">
+       <table>
+        <caption>
+         Coordinates use the viewBox system, rather than fixed screen pixels
+        </caption>
+        <thead>
+         <tr>
+          <th>
+           SVG
+          </th>
+          <th>
+           Example
+          </th>
+          <th>
+           How to read it
+          </th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <td>
+           rect
+          </td>
+          <td>
+           House walls
+          </td>
+          <td>
+           x=220, y=180; width=280, height=180
+          </td>
+         </tr>
+         <tr>
+          <td>
+           circle
+          </td>
+          <td>
+           Sun
+          </td>
+          <td>
+           cx=615, cy=75; r=38
+          </td>
+         </tr>
+         <tr>
+          <td>
+           ellipse
+          </td>
+          <td>
+           Cloud
+          </td>
+          <td>
+           cx=120, cy=95; rx=70, ry=24
+          </td>
+         </tr>
+         <tr>
+          <td>
+           line
+          </td>
+          <td>
+           Fence rail
+          </td>
+          <td>
+           (540,345) to (690,345)
+          </td>
+         </tr>
+         <tr>
+          <td>
+           polygon
+          </td>
+          <td>
+           Roof
+          </td>
+          <td>
+           (200,180), (360,70), (520,180); automatically closed
+          </td>
+         </tr>
+         <tr>
+          <td>
+           polyline
+          </td>
+          <td>
+           Fence tops
+          </td>
+          <td>
+           Starts at (550,370), through (550,315), (575,295)…; remains open
+          </td>
+         </tr>
+         <tr>
+          <td>
+           path
+          </td>
+          <td>
+           Garden path
+          </td>
+          <td>
+           M360 360; Q300 395 380 440. Q uses control point (300,395) and endpoint (380,440).
+          </td>
+         </tr>
+         <tr>
+          <td>
+           text
+          </td>
+          <td>
+           Garden title
+          </td>
+          <td>
+           x=24, y=40 positions the start of the text baseline
+          </td>
+         </tr>
+         <tr>
+          <td>
+           g + translate
+          </td>
+          <td>
+           Two windows
+          </td>
+          <td>
+           Shared group: translate(250,210). The second window uses translate(172,0). Their top-left corners are (250,210) and (422,210).
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+     </figure>
+    </details>
+    <details>
+     <summary>
+      Window group: inherited styling
+     </summary>
+     <pre>&lt;g id="windows" fill="#bce4f3" stroke="#344957"
    stroke-width="3" transform="translate(250,210)"&gt;
   &lt;g&gt;&lt;rect width="48" height="48" /&gt;…&lt;/g&gt;
   &lt;g transform="translate(172,0)"&gt;…&lt;/g&gt;
-&lt;/g&gt;</pre></details>
-<details><summary>Evidence and Developer Tools</summary><p>Real browser captures are saved in the evidence folder after testing. To capture the live DOM, open F12 → Elements, expand svg and g#windows, then capture the drawing and DOM together. The code excerpt on this page is not a Developer Tools screenshot.</p><div id="house-evidence"></div></details>
-</section></main><footer><p>Teaching snapshots, not live data. <a href="../README-Demo-2.md">README and setup</a> · <a href="../VAN-DAP.md">Oral preparation</a></p></footer></body></html>
+&lt;/g&gt;</pre>
+    </details>
+    <details>
+     <summary>
+      Evidence and Developer Tools
+     </summary>
+     <p>
+      The initial browser capture and revised coordinate diagram document the drawing. Open an image to inspect the coordinates at full size. Captures are prepared after the classroom demonstration; they are not evidence of earlier classroom activity.
+     </p>
+     <div class="evidence-grid" id="house-evidence">
+      <figure>
+       <a href="../evidence/house-before.png" rel="noopener" target="_blank">
+        <img alt="Initial SVG" height="733" loading="lazy" src="../evidence/house-before.png" width="1200"/>
+       </a>
+       <figcaption>
+        Initial version, captured from the preserved SVG.
+       </figcaption>
+      </figure>
+      <figure>
+       <a href="../evidence/house-coordinate-sheet.svg" rel="noopener" target="_blank">
+        <img alt="Coordinate diagram of the revised SVG" height="733" loading="lazy" src="../evidence/house-coordinate-sheet.svg" width="1200"/>
+       </a>
+       <figcaption>
+        Coordinate diagram with labels for rect, circle, ellipse, line, polygon, polyline, path and text.
+       </figcaption>
+      </figure>
+     </div>
+    </details>
+   </section>
+  </main>
+  <footer>
+   <p>
+    <strong>
+     Data, drawn.
+    </strong>
+    <br/>
+    COS30045 · Nguyen Ngoc Lam Dan · 104992198
+   </p>
+   <p>
+    <a href="../methodology.html">
+     Sources &amp; methods
+    </a>
+    <a href="../output/pdf/GenAI-Declaration_Exercise-4.pdf">
+     AI declaration · 4
+    </a>
+    <a href="../output/pdf/GenAI-Declaration_Exercise-5.pdf">
+     5
+    </a>
+    <a href="../output/pdf/GenAI-Declaration_Exercise-6.pdf">
+     6
+    </a>
+   </p>
+  </footer>
+ </body>
+</html>

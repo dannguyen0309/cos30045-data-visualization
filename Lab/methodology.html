@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+   Sources &amp; methods · Data, drawn.
+  </title>
+  <link href="shared/base.css?v=3" rel="stylesheet"/>
+  <link href="data:," rel="icon"/>
+  <meta content="COS30045 Demonstration 2: SVG drawing, D3 charts and coordinated TV energy exploration. Teaching snapshots with sources, accessible tables and methods." name="description"/>
+ </head>
+ <body>
+  <a class="skip" href="#main">
+   Skip to content
+  </a>
+  <header>
+   <div class="header-inner">
+    <a class="brand" href="index.html">
+     <span aria-hidden="true" class="brand-mark">
+      dv.
+     </span>
+     <span>
+      Data, drawn.
+      <small>
+       COS30045 / Demonstration 2
+      </small>
+     </span>
+    </a>
+    <nav aria-label="Exercises">
+     <a href="Lab-4/index.html">
+      01 / SVG house
+     </a>
+     <a href="Lab-4/bar.html">
+      02 / Bar chart
+     </a>
+     <a aria-current="page" href="Lab-5/index.html">
+      03 / Multi-chart
+     </a>
+     <a href="Lab-6/index.html">
+      04 / Interactivity
+     </a>
+    </nav>
+   </div>
+  </header>
+  <main class="methodology" id="main">
+   <div class="page-intro">
+    <div>
+     <p class="eyebrow">
+      The evidence behind the views
+     </p>
+     <h1>
+      Sources &amp; methods
+     </h1>
+     <p class="lead">
+      A teaching snapshot, a reproducible workflow and explicit limits.
+     </p>
+    </div>
+   </div>
+   <h2>
+    TV registrations
+   </h2>
+   <p>
+    The original Energy Rating teaching snapshot is dated 15 February 2026: 4,724 rows. KNIME keeps Available registrations sold in Australia, leaving 4,508. A row is a registration record, not a sale or household. The brand chart keeps brands with at least 20 registrations: 25 brands and 4,240 records.
+   </p>
+   <h2>
+    Comparing technologies at 55 inches
+   </h2>
+   <p>
+    KNIME divides screen size in centimetres by 2.54, rounds to an integer, then filters for 55. GroupBy calculates mean annual energy and sample count: 736 records. Size groups use the existing Lab 2 boundaries: Small ≤43, Medium 44–65, Large ≥66 rounded inches. Means are sensitive to outliers; a comparison does not establish causation.
+   </p>
+   <h2>
+    Electricity spot prices
+   </h2>
+   <p>
+    ARE_Spot_Prices.csv, supplied on Canvas, contains 27 annual observations from 1998 to 2024. Its average uses Queensland, New South Wales, Victoria and South Australia. Tasmania and Snowy are excluded. Units are AUD/MWh; these are wholesale prices, not household retail tariffs. No inflation adjustment is stated in the teaching file.
+   </p>
+   <h2>
+    Interactive TV dataset
+   </h2>
+   <p>
+    Ex6_TVdata_withStar.csv is the prepared Exercise 6 dataset: 4,233 rows (LED 3,492; LCD 455; OLED 286). The supplied W6 workflow includes deduplication and technology renaming, so its total differs from Lab 5. It references the February source even though Canvas describes January data. Annual energy spans 56–2,652 kWh/year. All outliers are retained.
+   </p>
+   <p>
+    Blank numeric fields stay invalid rather than becoming zero. Invalid rows are reported by the loader; none are removed from the supplied Exercise 6 file. Fourteen fixed histogram intervals of 200 kWh/year span 0–2,800. Domains and thresholds remain fixed while filtering. Star ratings are ordered ratings, not energy quantities on a ratio scale.
+   </p>
+   <h2>
+    Accessibility &amp; interaction
+   </h2>
+   <p>
+    Native filter buttons, visible focus, point keyboard navigation, a record selector and data tables provide alternatives to colour and hover. The histogram respects reduced motion. Filtering is session-only; reloading starts with All. The browser keeps native scrolling and zoom.
+   </p>
+   <h2>
+    Reproducibility &amp; AI assistance
+   </h2>
+   <p>
+    The student executed and saved both adapted KNIME workflows. All 22 nodes show EXECUTED states. Independent checks verify the real CSV outputs. OpenAI Codex assisted with SVG, D3 implementation, workflow settings, tests, interface refinement and supporting documents. Separate declarations describe this assistance. Browser checks are technical verification, not a usability study with participants.
+   </p>
+   <h2>
+    Sources &amp; limits
+   </h2>
+   <p>
+    Files were obtained from
+    <a href="https://swinburne.instructure.com/courses/78028/assignments/803536">
+     COS30045 Canvas
+    </a>
+    . Teaching-file reuse licences have not been independently verified. Charts describe these snapshots, not current market activity.
+   </p>
+   <p>
+    Implementation references:
+    <a href="https://d3js.org/d3-fetch">
+     D3 CSV loading
+    </a>
+    ,
+    <a href="https://d3js.org/d3-selection/joining">
+     data joins
+    </a>
+    ,
+    <a href="https://d3js.org/d3-scale">
+     scales
+    </a>
+    and
+    <a href="https://d3js.org/d3-array/bin">
+     binning
+    </a>
+    . D3 v7.9.0 is included locally under its ISC licence.
+   </p>
+  </main>
+  <footer>
+   <p>
+    <strong>
+     Data, drawn.
+    </strong>
+    <br/>
+    COS30045 · Nguyen Ngoc Lam Dan · 104992198
+   </p>
+   <p>
+    <a href="methodology.html">
+     Sources &amp; methods
+    </a>
+    <a href="output/pdf/GenAI-Declaration_Exercise-4.pdf">
+     AI declaration · 4
+    </a>
+    <a href="output/pdf/GenAI-Declaration_Exercise-5.pdf">
+     5
+    </a>
+    <a href="output/pdf/GenAI-Declaration_Exercise-6.pdf">
+     6
+    </a>
+   </p>
+  </footer>
+  <!-- Load local D3 first, shared helpers second, then exercise scripts. Lab 6 loads its CSV last. -->
+ </body>
+</html>

@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-01",
+  "filters": [
+    {
+      "histograms": 1,
+      "points": 455,
+      "scatterplots": 1,
+      "scrollWidth": 358,
+      "status": "LCD: 455 records.",
+      "total": 455,
+      "width": 375
+    },
+    {
+      "histograms": 1,
+      "points": 3492,
+      "scatterplots": 1,
+      "scrollWidth": 358,
+      "status": "LED: 3,492 records.",
+      "total": 3492,
+      "width": 375
+    },
+    {
+      "histograms": 1,
+      "points": 286,
+      "scatterplots": 1,
+      "scrollWidth": 358,
+      "status": "OLED: 286 records.",
+      "total": 286,
+      "width": 375
+    },
+    {
+      "histograms": 1,
+      "points": 4233,
+      "scatterplots": 1,
+      "scrollWidth": 358,
+      "status": "All: 4,233 records.",
+      "total": 4233,
+      "width": 375
+    }
+  ],
+  "recordInspection": {
+    "outline": "2.22222px",
+    "pressed": "OLED",
+    "right": 327.77779960632324,
+    "tooltip": "metz 65MXD9500A \u00c2\u00b7 OLED \u00c2\u00b7 65 inch \u00c2\u00b7 4 stars \u00c2\u00b7 586 kWh/year",
+    "width": 375
+  },
+  "final_marks": {
+    "horizontal_bars": 25,
+    "mean_bars": 3,
+    "line_points": 27,
+    "donut_arcs": 3,
+    "tv_points": 4233,
+    "grid_layers": 5,
+    "alerts": 0
+  }
+}

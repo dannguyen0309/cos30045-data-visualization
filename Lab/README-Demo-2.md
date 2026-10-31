@@ -1,6 +1,6 @@
 # Demonstration 2 — Weeks 4–6
 
-One static D3 v7 website, with every exercise on the home page and direct pages for individual demonstrations.
+One static D3 v7 website, with every exercise on the home page and direct pages for individual demonstrations. The interface was refined after the completed classroom demonstration, at the student's request. Analytical definitions and the source data remain unchanged.
 
 ## Run locally
 
@@ -10,7 +10,7 @@ From the repository root:
 python -m http.server 8004 --bind 127.0.0.1 --directory Lab
 ```
 
-Open **http://127.0.0.1:8004/**. Use the navigation to jump between the four exercises. D3 7.9.0 is stored locally; no npm install, build step or internet connection is needed for the website.
+Open **http://127.0.0.1:8004/**. Use the header navigation for dedicated exercise pages or the home-page links to jump between all four sections. D3 7.9.0 is stored locally; no npm install, build step or internet connection is needed for the website.
 
 | Exercise | Main-page section | Direct page |
 | --- | --- | --- |
@@ -63,8 +63,27 @@ KNIME Batch Executor is not installed on this machine. The student executed and 
 
 ## Submission and oral demonstration
 
-Read [VAN-DAP.md](VAN-DAP.md), [SUBMISSION-CHECKLIST.md](SUBMISSION-CHECKLIST.md), and the separate GenAI declarations. Website code is not proof that the student can explain or modify it. Practise the changes before the interview.
+The student reports that the classroom demonstration is complete. Review [SUBMISSION-CHECKLIST.md](SUBMISSION-CHECKLIST.md) and the revised separate GenAI declarations before submission. [VAN-DAP.md](VAN-DAP.md) remains as a learning reference; the post-demo refinement is explicitly declared.
 
 Requirements checked against [Canvas Demonstration 2](https://swinburne.instructure.com/courses/78028/assignments/803536) and the local Week 4–6 course PDFs. D3 references: [CSV loading](https://d3js.org/d3-fetch), [binning](https://d3js.org/d3-array/bin), [data joins](https://d3js.org/d3-selection/joining), [scales](https://d3js.org/d3-scale), [shapes](https://d3js.org/d3-shape). D3 is redistributed under the ISC licence in `shared/D3-LICENSE.txt`.
 
-No GitHub push, Mercury upload, Vercel deployment or Canvas submission is part of this local demo session.
+Vercel hosting for Demonstration 2 is authorised by the student. The Canvas brief names Mercury; the student selected Vercel, referring to the tutor's permission for Demo 1. Do not present this as independently verified tutor approval for Demo 2. Canvas submission is not authorised in this implementation session.
+
+
+## Website refinement and deployment
+
+The interface uses a shared teal and cream palette, a compact navigation bar, a responsive two-column layout for the Lab 5 and Lab 6 charts, readable labels, direct takeaways and collapsible data tables. `methodology.html` carries the full source and caveat notes. No framework or chart dependency was added.
+
+The browser-captured initial house and a vector coordinate diagram are embedded in Exercise 4.1. The diagram is labelled as a diagram, not a screenshot of Developer Tools. A real screenshot of the drawing with the expanded Developer Tools DOM remains a manual evidence item.
+
+Vercel settings: Root Directory `Lab`, Application Preset `Other`. The versioned `vercel.json` sets Build Command `node scripts/build_site.cjs` and Output Directory `dist`. The allowlist build publishes only the website assets and separate declarations, excluding old labs, KNIME folders and development scripts.
+
+Verify the exact public artifact locally:
+
+```powershell
+node Lab/scripts/build_site.cjs
+python Lab/scripts/check_site.py
+python -m http.server 8005 --bind 127.0.0.1 --directory Lab/dist
+```
+
+See `evidence/redesign-browser-checks.json` for real mobile filter results and `evidence/TEST-RESULTS.md` for limitations.

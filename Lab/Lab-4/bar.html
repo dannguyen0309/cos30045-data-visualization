@@ -1,7 +1,155 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Loading data and drawing bars · COS30045</title><link rel="stylesheet" href="../shared/base.css"><link rel="icon" href="data:,"></head><body><a class="skip" href="#main">Skip to content</a><header><a href="../index.html"><strong>COS30045 · Demonstration 2</strong></a><nav aria-label="Exercises"><a href="../index.html#house">4.1 SVG house</a><a href="../index.html#brands">4.3–4.7 Bar chart</a><a href="../index.html#multichart">5 Multi-chart</a><a href="../index.html#interactivity">6 Interactivity</a></nav></header><main id="main"><p class="eyebrow">Week 4–6 · Nguyen Ngoc Lam Dan · 104992198</p><h1>Loading data and drawing bars</h1><p class="lead">SVG, data and interaction with D3 v7. All exercises in one website.</p><noscript>Enable JavaScript to view the charts. CSV files remain available in the data folders.</noscript><section id="brands"><p class="eyebrow">Exercise 4.3–4.7 · Binding, scales, labels</p><h2>Which brands have the most TV registrations?</h2>
-<p id="brand-status" class="status">Loading CSV…</p><figure><div id="brand-chart" class="chart"></div><figcaption>Bar length represents the registration count, starting at zero. Only brands with at least 20 registrations are shown, following the supplied workflow’s Row Filter.</figcaption></figure>
-<details><summary>View the data table and download CSV</summary><p><a href="../Lab-4/data/tvBrandCount.csv" download>tvBrandCount.csv</a></p><div id="brand-table" class="table-wrap"></div></details>
-<p class="note">Source: tvBrandCount.csv included in 2026 TV Data.knwf, using the 15 February 2026 snapshot. The workflow keeps Available registrations sold in Australia, standardises brands and groups the records. Counts describe registrations, not sales.</p>
-<details><summary>Exercise 4.2–4.3: D3 practice before the bar chart</summary><p>Open the preserved practice example: <a href="../Lab-4/practice.html">select, style, append a paragraph and a rectangle</a>. The practice code has its own page so it does not add extra shapes to the final chart.</p></details></section></main><footer><p>Teaching snapshots, not live data. <a href="../README-Demo-2.md">README and setup</a> · <a href="../VAN-DAP.md">Oral preparation</a></p></footer>
-<!-- Load local D3 first, shared helpers second, then exercise scripts. Lab 6 loads its CSV last. -->
-<script src="../shared/d3.v7.min.js"></script><script src="../shared/chart.js"></script><script src="../Lab-4/bar-chart.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+   Loading data and drawing bars · COS30045
+  </title>
+  <link href="../shared/base.css?v=3" rel="stylesheet"/>
+  <link href="data:," rel="icon"/>
+  <meta content="COS30045 Demonstration 2: SVG drawing, D3 charts and coordinated TV energy exploration. Teaching snapshots with sources, accessible tables and methods." name="description"/>
+ </head>
+ <body>
+  <a class="skip" href="#main">
+   Skip to content
+  </a>
+  <header>
+   <div class="header-inner">
+    <a class="brand" href="../index.html">
+     <span aria-hidden="true" class="brand-mark">
+      dv.
+     </span>
+     <span>
+      Data, drawn.
+      <small>
+       COS30045 / Demonstration 2
+      </small>
+     </span>
+    </a>
+    <nav aria-label="Exercises">
+     <a href="../Lab-4/index.html">
+      01 / SVG house
+     </a>
+     <a aria-current="page" href="../Lab-4/bar.html">
+      02 / Bar chart
+     </a>
+     <a href="../Lab-5/index.html">
+      03 / Multi-chart
+     </a>
+     <a href="../Lab-6/index.html">
+      04 / Interactivity
+     </a>
+    </nav>
+   </div>
+  </header>
+  <main id="main">
+   <div class="page-intro">
+    <div>
+     <p class="eyebrow">
+      COS30045 · Demonstration 2
+     </p>
+     <h1>
+      Loading data and drawing bars
+     </h1>
+     <p class="lead">
+      An exercise in SVG, evidence and interaction.
+     </p>
+    </div>
+    <p class="meta">
+     Nguyen Ngoc Lam Dan
+     <br/>
+     104992198 · Weeks 04—06
+    </p>
+   </div>
+   <section class="chapter" id="brands">
+    <div class="chapter-heading">
+     <div>
+      <p class="eyebrow">
+       Exercise 4.3–4.7 · Binding, scales, labels
+      </p>
+      <h2>
+       Which brands have the most TV registrations?
+      </h2>
+     </div>
+     <span aria-hidden="true" class="chapter-index">
+      02
+     </span>
+    </div>
+    <p class="status" id="brand-status">
+     Loading CSV…
+    </p>
+    <figure>
+     <p class="panel-kicker">
+      25 brands · Available registrations sold in Australia
+     </p>
+     <div class="chart" id="brand-chart">
+     </div>
+     <figcaption>
+      Bar length represents the registration count, starting at zero. Only brands with at least 20 registrations are shown, following the supplied workflow’s Row Filter.
+     </figcaption>
+     <p class="takeaway">
+      Samsung has the largest registration count in this teaching snapshot. Counts describe catalogue registrations, not sales.
+     </p>
+    </figure>
+    <details>
+     <summary>
+      View the data table and download CSV
+     </summary>
+     <p>
+      <a download="" href="../Lab-4/data/tvBrandCount.csv">
+       tvBrandCount.csv
+      </a>
+     </p>
+     <div class="table-wrap" id="brand-table">
+     </div>
+    </details>
+    <p class="source-note">
+     Source: tvBrandCount.csv included in 2026 TV Data.knwf, using the 15 February 2026 snapshot. The workflow keeps Available registrations sold in Australia, standardises brands and groups the records. Counts describe registrations, not sales.
+    </p>
+    <details>
+     <summary>
+      Exercise 4.2–4.3: D3 practice before the bar chart
+     </summary>
+     <p>
+      Open the preserved practice example:
+      <a href="../Lab-4/practice.html">
+       select, style, append a paragraph and a rectangle
+      </a>
+      . The practice code has its own page so it does not add extra shapes to the final chart.
+     </p>
+    </details>
+   </section>
+  </main>
+  <footer>
+   <p>
+    <strong>
+     Data, drawn.
+    </strong>
+    <br/>
+    COS30045 · Nguyen Ngoc Lam Dan · 104992198
+   </p>
+   <p>
+    <a href="../methodology.html">
+     Sources &amp; methods
+    </a>
+    <a href="../output/pdf/GenAI-Declaration_Exercise-4.pdf">
+     AI declaration · 4
+    </a>
+    <a href="../output/pdf/GenAI-Declaration_Exercise-5.pdf">
+     5
+    </a>
+    <a href="../output/pdf/GenAI-Declaration_Exercise-6.pdf">
+     6
+    </a>
+   </p>
+  </footer>
+  <!-- Load local D3 first, shared helpers second, then exercise scripts. Lab 6 loads its CSV last. -->
+  <script src="../shared/d3.v7.min.js">
+  </script>
+  <script src="../shared/chart.js?v=2">
+  </script>
+  <script src="../Lab-4/bar-chart.js?v=2">
+  </script>
+ </body>
+</html>

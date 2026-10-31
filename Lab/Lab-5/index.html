@@ -1,13 +1,198 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Comparison, trends and proportions · COS30045</title><link rel="stylesheet" href="../shared/base.css"><link rel="icon" href="data:,"></head><body><a class="skip" href="#main">Skip to content</a><header><a href="../index.html"><strong>COS30045 · Demonstration 2</strong></a><nav aria-label="Exercises"><a href="../index.html#house">4.1 SVG house</a><a href="../index.html#brands">4.3–4.7 Bar chart</a><a href="../index.html#multichart">5 Multi-chart</a><a href="../index.html#interactivity">6 Interactivity</a></nav></header><main id="main"><p class="eyebrow">Week 4–6 · Nguyen Ngoc Lam Dan · 104992198</p><h1>Comparison, trends and proportions</h1><p class="lead">SVG, data and interaction with D3 v7. All exercises in one website.</p><noscript>Enable JavaScript to view the charts. CSV files remain available in the data folders.</noscript><section id="multichart"><p class="eyebrow">Exercise 5 · Multi-chart</p><h2>Three views of TVs and electricity prices</h2>
-<h3>How does mean annual energy compare at 55 inches?</h3><p id="energy-status" class="status">Loading KNIME output…</p>
-<figure><div id="energy-chart" class="chart"></div><figcaption>Bar height represents mean kWh/year. Convert screensize from centimetres using / 2.54, round to the nearest integer, then filter for 55. This is a size grouping rule, not an exact measurement of 55.000 inches.</figcaption></figure>
-<details><summary>Mean energy and sample counts</summary><div id="energy-table" class="table-wrap"></div></details>
-<h3>How wholesale spot prices changed over time</h3><p id="price-status" class="note">Loading data…</p>
-<figure><div id="line-chart" class="chart"></div><figcaption>Points show the supplied annual average price, joined by straight line segments. Unit: AUD/MWh. Wholesale spot prices are not household retail electricity prices.</figcaption></figure>
-<details><summary>Annual electricity price table</summary><div id="price-table" class="table-wrap"></div></details>
-<h3>What share of registrations belongs to each size group?</h3><p id="size-status" class="note">Loading KNIME output…</p>
-<figure><div id="donut-chart" class="chart"></div><ul id="size-legend" class="legend"></ul><figcaption>Arc angles represent registration shares. Order: Small → Medium → Large. Group boundaries follow the existing Lab 2 workflow.</figcaption></figure>
-<details><summary>Counts and percentages</summary><div id="size-table" class="table-wrap"></div></details>
-<p class="note">TVs: 15 February 2026 snapshot, Available and sold in Australia; no expiry-date filter or deduplication. Means are sensitive to outliers. Electricity prices: ARE_Spot_Prices.csv supplied on Canvas, 1998–2024. Reuse licences for the teaching files have not been verified.</p></section></main><footer><p>Teaching snapshots, not live data. <a href="../README-Demo-2.md">README and setup</a> · <a href="../VAN-DAP.md">Oral preparation</a></p></footer>
-<!-- Load local D3 first, shared helpers second, then exercise scripts. Lab 6 loads its CSV last. -->
-<script src="../shared/d3.v7.min.js"></script><script src="../shared/chart.js"></script><script src="../Lab-5/bar-chart.js"></script><script src="../Lab-5/line-chart.js"></script><script src="../Lab-5/donut-chart.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+   Comparison, trends and proportions · COS30045
+  </title>
+  <link href="../shared/base.css?v=3" rel="stylesheet"/>
+  <link href="data:," rel="icon"/>
+  <meta content="COS30045 Demonstration 2: SVG drawing, D3 charts and coordinated TV energy exploration. Teaching snapshots with sources, accessible tables and methods." name="description"/>
+ </head>
+ <body>
+  <a class="skip" href="#main">
+   Skip to content
+  </a>
+  <header>
+   <div class="header-inner">
+    <a class="brand" href="../index.html">
+     <span aria-hidden="true" class="brand-mark">
+      dv.
+     </span>
+     <span>
+      Data, drawn.
+      <small>
+       COS30045 / Demonstration 2
+      </small>
+     </span>
+    </a>
+    <nav aria-label="Exercises">
+     <a href="../Lab-4/index.html">
+      01 / SVG house
+     </a>
+     <a href="../Lab-4/bar.html">
+      02 / Bar chart
+     </a>
+     <a aria-current="page" href="../Lab-5/index.html">
+      03 / Multi-chart
+     </a>
+     <a href="../Lab-6/index.html">
+      04 / Interactivity
+     </a>
+    </nav>
+   </div>
+  </header>
+  <main id="main">
+   <div class="page-intro">
+    <div>
+     <p class="eyebrow">
+      COS30045 · Demonstration 2
+     </p>
+     <h1>
+      Comparison, trends and proportions
+     </h1>
+     <p class="lead">
+      An exercise in SVG, evidence and interaction.
+     </p>
+    </div>
+    <p class="meta">
+     Nguyen Ngoc Lam Dan
+     <br/>
+     104992198 · Weeks 04—06
+    </p>
+   </div>
+   <section class="chapter" id="multichart">
+    <div class="chapter-heading">
+     <div>
+      <p class="eyebrow">
+       Exercise 5 · Multi-chart
+      </p>
+      <h2>
+       Three views of TVs and electricity prices
+      </h2>
+     </div>
+     <span aria-hidden="true" class="chapter-index">
+      03
+     </span>
+    </div>
+    <div class="chapter-grid">
+     <article class="chart-panel">
+      <h3>
+       How does mean annual energy compare at 55 inches?
+      </h3>
+      <p class="status" id="energy-status">
+       Loading KNIME output…
+      </p>
+      <figure>
+       <div class="chart" id="energy-chart">
+       </div>
+       <figcaption>
+        Bar height represents mean kWh/year. Convert screensize from centimetres using / 2.54, round to the nearest integer, then filter for 55. This is a size grouping rule, not an exact measurement of 55.000 inches.
+       </figcaption>
+      </figure>
+      <details>
+       <summary>
+        Mean energy and sample counts
+       </summary>
+       <div class="table-wrap" id="energy-table">
+       </div>
+      </details>
+      <p class="takeaway">
+       Among the rounded-55-inch records, LCD (LED) has the highest mean annual energy. The comparison is descriptive, not causal.
+      </p>
+     </article>
+     <article class="chart-panel">
+      <h3>
+       What share of registrations belongs to each size group?
+      </h3>
+      <p class="note" id="size-status">
+       Loading KNIME output…
+      </p>
+      <figure>
+       <div class="chart" id="donut-chart">
+       </div>
+       <ul class="legend" id="size-legend">
+       </ul>
+       <figcaption>
+        Arc angles represent registration shares. Order: Small → Medium → Large. Group boundaries follow the existing Lab 2 workflow.
+       </figcaption>
+      </figure>
+      <details>
+       <summary>
+        Counts and percentages
+       </summary>
+       <div class="table-wrap" id="size-table">
+       </div>
+      </details>
+      <p class="takeaway">
+       Medium screens account for 45.7% of Available Australian registrations in this dataset.
+      </p>
+     </article>
+     <article class="chart-panel wide">
+      <h3>
+       How wholesale spot prices changed over time
+      </h3>
+      <p class="note" id="price-status">
+       Loading data…
+      </p>
+      <figure>
+       <div class="chart" id="line-chart">
+       </div>
+       <figcaption>
+        Points show the supplied annual average price, joined by straight line segments. Unit: AUD/MWh. Wholesale spot prices are not household retail electricity prices.
+       </figcaption>
+      </figure>
+      <details>
+       <summary>
+        Annual electricity price table
+       </summary>
+       <div class="table-wrap" id="price-table">
+       </div>
+      </details>
+      <p class="takeaway">
+       The supplied four-state average reaches its highest value in 2022: AUD 144.50/MWh.
+      </p>
+     </article>
+    </div>
+    <p class="source-note">
+     TVs: 15 February 2026 snapshot, Available and sold in Australia; no expiry-date filter or deduplication. Means are sensitive to outliers. Electricity prices: ARE_Spot_Prices.csv supplied on Canvas, 1998–2024. Reuse licences for the teaching files have not been verified.
+    </p>
+   </section>
+  </main>
+  <footer>
+   <p>
+    <strong>
+     Data, drawn.
+    </strong>
+    <br/>
+    COS30045 · Nguyen Ngoc Lam Dan · 104992198
+   </p>
+   <p>
+    <a href="../methodology.html">
+     Sources &amp; methods
+    </a>
+    <a href="../output/pdf/GenAI-Declaration_Exercise-4.pdf">
+     AI declaration · 4
+    </a>
+    <a href="../output/pdf/GenAI-Declaration_Exercise-5.pdf">
+     5
+    </a>
+    <a href="../output/pdf/GenAI-Declaration_Exercise-6.pdf">
+     6
+    </a>
+   </p>
+  </footer>
+  <!-- Load local D3 first, shared helpers second, then exercise scripts. Lab 6 loads its CSV last. -->
+  <script src="../shared/d3.v7.min.js">
+  </script>
+  <script src="../shared/chart.js?v=2">
+  </script>
+  <script src="../Lab-5/bar-chart.js?v=2">
+  </script>
+  <script src="../Lab-5/line-chart.js?v=2">
+  </script>
+  <script src="../Lab-5/donut-chart.js?v=2">
+  </script>
+ </body>
+</html>

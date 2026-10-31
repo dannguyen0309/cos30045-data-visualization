@@ -21,11 +21,12 @@ def main():
         sections=[
             ('Student','Nguyen Ngoc Lam Dan | Student ID: 104992198'),
             ('Assessment',f'COS30045 Data Visualisation - Demonstration 2, Exercise {exercise}'),
-            ('Date','26 October 2026'),
+            ('Date','1 November 2026 (revised after the classroom demonstration)'),
             ('Tool and purpose','I used OpenAI Codex (GPT-6-based coding agent) to help implement the Week 4-6 exercise plan, prepare a local D3 v7 demonstration website, troubleshoot code and draft supporting documents.'),
             ('Scope of AI assistance',scope),
+            ('After the demonstration','Following the classroom demonstration, Codex refined the website layout, typography, chart presentation, source notes and responsive behaviour, prepared a coordinate diagram and browser evidence, updated documents, and configured Vercel hosting at my request. The original datasets and analytical definitions were retained.'),
             ('Review and verification','Codex inspected the course instructions and supplied files, generated code and workflow settings, and ran the checks recorded in evidence/TEST-RESULTS.md. Its changes include explicit numeric parsing, source caveats, labels and accessibility support. Only checks actually performed are recorded. No participant feedback, Developer Tools capture or KNIME execution evidence was invented.'),
-            ('Responsibility and limits','The SVG, website code, tests, workflow adaptations and this declaration include substantial AI assistance. I must review the submitted work and be able to explain and modify it during the oral demonstration. The AI-generated material is not a claim that I independently wrote every line, completed every manual step or demonstrated personal understanding. Any outstanding checks are identified in the README and submission checklist.'),
+            ('Responsibility and limits','The SVG, website code, tests, workflow adaptations and this declaration include substantial AI assistance. I completed the classroom demonstration, as reported in this session. This declaration does not claim that I independently wrote every line or that an automated check assessed my understanding. Outstanding manual checks are identified in the submission checklist.'),
         ]
         story=[Paragraph(f'GenAI Declaration<br/>Exercise {exercise}',styles['Title']),Spacer(1,12)]
         for title,text in sections:

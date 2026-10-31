@@ -41,9 +41,14 @@ const Chart = {
     return {svg, g, width, height, margin, w:width-left-right, h:height-margin.top-margin.bottom};
   },
   axes(c, x, y, xLabel, yLabel, year = false) {
+    // Quiet gridlines share the numeric scale, keeping the data marks visually dominant.
+    const numericY = !y.bandwidth;
+    c.g.selectAll('g.grid').data([null]).join('g').attr('class','grid').lower()
+      .attr('transform', numericY ? null : `translate(0,${c.h})`)
+      .call(numericY ? d3.axisLeft(y).ticks(5).tickSize(-c.w).tickFormat('') : d3.axisBottom(x).ticks(c.w<400?3:6).tickSize(-c.h).tickFormat(''));
     // Move the horizontal axis to the plot bottom; use fewer ticks on narrow screens.
     c.g.selectAll('g.x-axis').data([null]).join('g').attr('class', 'x-axis')
-      .attr('transform', `translate(0,${c.h})`).call(d3.axisBottom(x).ticks(c.w < 400 ? 4 : 7, year ? 'd' : undefined).tickSizeOuter(0).tickPadding(8));
+      .attr('transform', `translate(0,${c.h})`).call(d3.axisBottom(x).ticks(c.w < 400 ? 3 : 7, year ? 'd' : undefined).tickSizeOuter(0).tickPadding(8));
     // Generate the vertical axis from the same y scale used for the marks.
     c.g.selectAll('g.y-axis').data([null]).join('g').attr('class', 'y-axis')
       .call(d3.axisLeft(y).ticks(5).tickSizeOuter(0).tickPadding(8));

@@ -20,6 +20,7 @@ Chart.csv(new URL('data/sizeCounts.csv',document.currentScript.src),['screensize
     const arcs=d3.pie().sort(null).value(d=>d.count)(data), arc=d3.arc().innerRadius(r*.6).outerRadius(r).padAngle(.015).cornerRadius(2);
     // Join one path per group and keep the same category colours as the key.
     c.g.selectAll('path').data(arcs,d=>d.data.group).join('path').attr('d',arc).attr('fill',(d,i)=>colors[i]);
-    c.g.selectAll('text').data([total]).join('text').attr('text-anchor','middle').attr('dy','.35em').style('font-size','22px').text(d=>d.toLocaleString('en-AU'));
+    c.g.selectAll('text.total').data([total]).join('text').attr('class','total').attr('text-anchor','middle').attr('dy','0').style('font-size','24px').style('font-weight','650').text(d=>d.toLocaleString('en-AU'));
+    c.g.selectAll('text.total-label').data([null]).join('text').attr('class','total-label').attr('text-anchor','middle').attr('y',22).style('font-size','11px').text('registrations');
   });
 }).catch(e=>Chart.error('#size-status',e));

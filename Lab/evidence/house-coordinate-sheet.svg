@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 640" role="img" aria-labelledby="title desc">
+<g transform="translate(160,100)"><title id="title">House and garden</title><desc id="desc">A yellow house with a teal roof, grouped windows, a curved garden path, a tree, sun and fence.</desc>
+<rect width="720" height="440" fill="#e6f2f8" /><rect y="320" width="720" height="120" fill="#a8bd91" />
+
+<circle cx="615" cy="75" r="38" fill="#f1bd50" />
+
+<ellipse cx="120" cy="95" rx="70" ry="24" fill="white" />
+<rect x="434" y="92" width="28" height="80" fill="#8d5945" stroke="#344957" stroke-width="2" />
+
+<rect x="220" y="180" width="280" height="180" fill="#f1dca8" stroke="#344957" stroke-width="2" />
+
+<polygon points="200,180 360,70 520,180" fill="#286b75" stroke="#344957" stroke-width="3" />
+<rect x="330" y="260" width="60" height="100" fill="#72533c" /><circle cx="377" cy="314" r="4" fill="#f1bd50" />
+
+<g id="windows" fill="#bce4f3" stroke="#344957" stroke-width="3" transform="translate(250,210)">
+<g><rect width="48" height="48" /><line x1="24" y1="0" x2="24" y2="48" /><line x1="0" y1="24" x2="48" y2="24" /></g>
+
+<g transform="translate(172,0)"><rect width="48" height="48" /><line x1="24" y1="0" x2="24" y2="48" /><line x1="0" y1="24" x2="48" y2="24" /></g></g>
+
+<path d="M360 360 Q300 395 380 440" fill="none" stroke="#dfc8a5" stroke-width="32" />
+<rect x="95" y="245" width="20" height="110" fill="#72533c" /><ellipse cx="105" cy="235" rx="58" ry="70" fill="#3b7651" />
+
+<polyline points="550,370 550,315 575,295 600,315 600,370 625,370 625,315 650,295 675,315 675,370" fill="none" stroke="#faf7ee" stroke-width="8" />
+
+<line x1="540" y1="345" x2="690" y2="345" stroke="#faf7ee" stroke-width="8" />
+
+<text x="24" y="40" font-family="sans-serif" font-size="22" fill="#163247">A quiet garden</text>
+</g><g font-family="Arial, sans-serif" font-size="14" fill="#163b3b"><line x1="30" y1="63" x2="280" y2="195" stroke="#526763" stroke-width="1" /><circle cx="280" cy="195" r="3" fill="#ae601a" /><text x="20" y="55" >ellipse: c(120,95), rx70 ry24</text><line x1="690" y1="53" x2="775" y2="175" stroke="#526763" stroke-width="1" /><circle cx="775" cy="175" r="3" fill="#ae601a" /><text x="680" y="45" >circle: c(615,75), r38</text><line x1="30" y1="278" x2="380" y2="280" stroke="#526763" stroke-width="1" /><circle cx="380" cy="280" r="3" fill="#ae601a" /><text x="20" y="270" >rect: (220,180), 280 × 180</text><line x1="320" y1="48" x2="520" y2="170" stroke="#526763" stroke-width="1" /><circle cx="520" cy="170" r="3" fill="#ae601a" /><text x="310" y="40" >polygon: (200,180) (360,70) (520,180)</text><line x1="710" y1="298" x2="850" y2="445" stroke="#526763" stroke-width="1" /><circle cx="850" cy="445" r="3" fill="#ae601a" /><text x="700" y="290" >line: (540,345) → (690,345)</text><line x1="700" y1="568" x2="710" y2="470" stroke="#526763" stroke-width="1" /><circle cx="710" cy="470" r="3" fill="#ae601a" /><text x="690" y="560" >polyline: starts (550,370)</text><line x1="260" y1="603" x2="520" y2="460" stroke="#526763" stroke-width="1" /><circle cx="520" cy="460" r="3" fill="#ae601a" /><text x="250" y="595" >path: M360 360 Q300 395 380 440</text><line x1="30" y1="123" x2="184" y2="140" stroke="#526763" stroke-width="1" /><circle cx="184" cy="140" r="3" fill="#ae601a" /><text x="20" y="115" >text: baseline starts (24,40)</text></g><text x="20" y="630" font-family="Arial" font-size="13" fill="#526763">Coordinates refer to the original 720 × 440 viewBox; this annotation sheet adds an outer margin.</text></svg>

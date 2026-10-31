@@ -36,3 +36,18 @@ Date: 26 October 2026. These are technical checks performed by Codex, not a usab
 - No GitHub push, Mercury upload, Vercel deployment or Canvas submission was performed.
 
 The English comments explain key statements and concepts. They do not prove the student can explain or modify the code without reading them.
+
+## Post-demonstration refinement — 1 November 2026
+
+The student reports the classroom demonstration is complete and authorised Vercel hosting for Demo 2. The source snapshot and analytical definitions were retained.
+
+- Reworked the English interface with shared typography, a teal/cream palette, compact navigation, numbered exercise sections and responsive chart panels. Added a dedicated sources/methods page, direct evidence images and links to the separate declarations.
+- Added numeric-axis gridlines and clearer donut centre text. These are display changes; original means, counts, units, grouping rules, domains and filters remain intact.
+- Ran the data and chart-loader checks again: passed. All authored JavaScript passed syntax checking. The allowlist build and static-page check passed: seven pages, 125 valid local references, unique IDs and no old labs or KNIME caches in the public output.
+- Real browser checks at an observed `innerWidth` of 375 px found and fixed navigation overflow. All seven pages then had document scroll widths within the viewport, no alert messages and no broken loaded images. See `redesign-pages-mobile.json`.
+- Real mobile filter checks again returned LCD=455, LED=3,492, OLED=286 and All=4,233, matching point counts and bin totals. Each chart retained one SVG. Selecting record 171 displayed the expected screen size and energy; its tooltip stayed within the viewport. See `redesign-browser-checks.json`.
+- Visually inspected the redesigned desktop hero in the browser. Later screenshot captures repeatedly timed out in the browser-control tool. The successful original screenshot is retained as `website-before-redesign.png`; no failed capture is represented as a new screenshot.
+- Captured the original house in the browser (`house-before.png`). Added a vector coordinate diagram for all eight primitives (`house-coordinate-sheet.svg`) and labelled it as a diagram, not a screenshot. It preserves the original scene coordinates and adds an outer annotation margin.
+- Revised the three declarations to distinguish the original implementation from post-demo assistance. Rendered and visually inspected all three one-page PDFs: readable, with no clipping.
+
+Still manual: a genuine screenshot of the revised drawing together with the expanded Developer Tools DOM; exact 200% zoom; real touch hardware and screen-reader testing. Attempted zoom key commands did not change the observed browser scale, so a 200% check is not claimed. Reduced-motion behaviour is covered by automated preference stubs, not an OS-level browser preference check.
