@@ -38,6 +38,6 @@ The All/LCD/LED/OLED filter updates both charts with fixed bins and domains. Cou
 
 - `output/pdf/GenAI-Declaration_Exercise-4.pdf`, `-5.pdf`, `-6.pdf`: separate document uploads.
 - `evidence/TEST-RESULTS.md`: actual checks and limitations; older paths describe the layout at the time of each historical check.
-- `REDESIGN-CHANGES.md`: attributed report from the student-supplied AI design ZIP. Its tool/model was not identified; review the declarations to include that additional tool before submission.
+- The student supplied an AI-assisted design ZIP. Its tool/model was not identified; review the declarations to include that additional tool before submission.
 
 The classroom demonstration is complete as reported by the student. A genuine SVG-with-expanded-Developer-Tools-DOM screenshot remains a manual item. The coordinate sheet is labelled as a diagram, not fabricated evidence. Screen-reader, physical-device and 200% zoom checks remain unverified.

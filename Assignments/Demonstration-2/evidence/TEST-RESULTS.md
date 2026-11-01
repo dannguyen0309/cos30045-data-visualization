@@ -70,7 +70,7 @@ Still manual: a genuine screenshot of the revised drawing together with the expa
 ## Imported designer ZIP integration - 1 November 2026
 
 - Integrated `Demo-2-redesigned.zip` supplied by the student. CSVs, loaders, original SVGs, D3 and deployment configuration were byte-identical; only changed website files and supplied after-redesign image were imported. Original KNIME folders and course evidence were preserved.
-- External design report is attributed in `REDESIGN-CHANGES.md`. Its claims are not our independent test results. The external AI tool/model was not identified. Existing declaration PDFs predate this import; review them to include the additional tool before submission.
+- The external design report remains local. Its claims are not our independent test results. The external AI tool/model was not identified. Existing declaration PDFs predate this import; review them to include the additional tool before submission.
 - Independent checks passed: Python data verification, Node chart assertions, authored JavaScript syntax and built-site reference/ID checks (7 HTML pages, 125 references).
 - Edge local browser: all 7 pages at observed 376 CSS px (browser scaling), no horizontal page overflow, no role-alert errors. Combined page: 6 charts, 4,233 scatterplot points and 25 brand bars.
 - Seven repeated technology filters retained one SVG per chart, fixed bin boundaries and all axis tick sets. Histogram totals equalled point counts: LCD 455, LED 3,492, OLED 286, All 4,233.
