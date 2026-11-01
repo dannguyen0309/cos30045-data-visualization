@@ -2,7 +2,7 @@
 
 Production: https://cos30045-demonstration-2.vercel.app/
 
-This assessment assembles the canonical exercise sources in `Lab/Lab-4`, `Lab/Lab-5` and `Lab/Lab-6`. Shared website assets, evidence, separate GenAI PDFs and submission documents live here. `Lab` contains only Lab 1-6 in Git. Original downloads and local preparation files remain on the student's computer and are ignored by Git.
+This assessment assembles the canonical exercise sources in `Lab/Lab-4`, `Lab/Lab-5` and `Lab/Lab-6`. Shared website assets, evidence and separate GenAI PDFs live here. `Lab` contains only Lab 1-6 in Git. Original downloads and local preparation files remain on the student's computer and are ignored by Git.
 
 ## Run and verify
 
@@ -36,8 +36,6 @@ The All/LCD/LED/OLED filter updates both charts with fixed bins and domains. Cou
 
 ## Evidence and submission
 
-- `SUBMISSION-COMMENT.txt`: four GitHub and four live exercise URLs.
-- `SUBMISSION-CHECKLIST.md`: final manual checks.
 - `output/pdf/GenAI-Declaration_Exercise-4.pdf`, `-5.pdf`, `-6.pdf`: separate document uploads.
 - `evidence/TEST-RESULTS.md`: actual checks and limitations; older paths describe the layout at the time of each historical check.
 - `REDESIGN-CHANGES.md`: attributed report from the student-supplied AI design ZIP. Its tool/model was not identified; review the declarations to include that additional tool before submission.

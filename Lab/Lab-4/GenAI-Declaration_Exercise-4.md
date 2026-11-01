@@ -1,33 +1,29 @@
 # GenAI Declaration - Exercise 4
 
-## Student
+**Student:** Nguyen Ngoc Lam Dan
 
-Nguyen Ngoc Lam Dan | Student ID: 104992198
+**Student ID:** 104992198
 
-## Assessment
+**Assessment:** COS30045 Data Visualisation - Demonstration 2, Exercise 4
 
-COS30045 Data Visualisation - Demonstration 2, Exercise 4
+**Date:** 1 November 2026
 
-## Date
+## AI tools and general role
 
-1 November 2026 (revised after the classroom demonstration)
+I used OpenAI Codex as a general development assistant for planning, technical explanations, code drafting, troubleshooting and verification. Codex also helped refine the shared website and prepare supporting documents. Its contribution included generated implementation code, not only general advice.
 
-## Tool and purpose
+Additional AI design assistance was used for the website redesign supplied as `Demo-2-redesigned.zip`. **Design tool/model: [enter the tool and model used before submitting].** Codex helped integrate and check that redesign.
 
-I used OpenAI Codex (GPT-6-based coding agent) to help implement the Week 4-6 exercise plan, prepare a local D3 v7 demonstration website, troubleshoot code and draft supporting documents.
+## Exercise-specific assistance
 
-## Scope of AI assistance
+For Exercise 4, Codex helped with SVG coordinates and grouping, D3 selections, CSV loading, data binding, scales and the horizontal bar chart. This included generated code, explanations and workflow-setting assistance. I used this support while refining the house, chart presentation, labels and supporting information.
 
-Codex generated the initial and revised SVG house, coordinate explanations, grouped windows, the preserved D3 selection/append example, CSV-loading code, horizontal bar chart, responsive styling and navigation. It adapted the supplied brand workflow by adding a CSV Writer. The original supplied brand-count CSV was preserved and independently checked against the teaching snapshot.
+## My contribution and verification
 
-## After the demonstration
+I was responsible for the detailed refinement and final decisions for my submission. I reviewed and adjusted the work, checked the information against the exercise requirements and supplied datasets, and confirmed the final content and presentation. I also completed the classroom demonstration.
 
-Following the classroom demonstration, Codex refined the website layout, typography, chart presentation, source notes and responsive behaviour, prepared a coordinate diagram and browser evidence, updated documents, and configured Vercel hosting at my request. The original datasets and analytical definitions were retained.
+Codex assisted with automated data checks, browser checks and troubleshooting. These supported my review; they did not replace my responsibility to understand the code or verify the information. The executed KNIME workflows and exported CSV files provide the processing evidence; automated calculations are supplementary checks.
 
-## Review and verification
+## Responsibility
 
-Codex inspected the course instructions and supplied files, generated code and workflow settings, and ran the checks recorded in evidence/TEST-RESULTS.md. Its changes include explicit numeric parsing, source caveats, labels and accessibility support. Only checks actually performed are recorded. No participant feedback, Developer Tools capture or KNIME execution evidence was invented.
-
-## Responsibility and limits
-
-The SVG, website code, tests, workflow adaptations and this declaration include substantial AI assistance. I completed the classroom demonstration, as reported in this session. This declaration does not claim that I independently wrote every line or that an automated check assessed my understanding. Outstanding manual checks are identified in the submission checklist.
+I acknowledge the AI-generated code and design assistance used in this work. I take responsibility for the final submission, its accuracy and my ability to explain it. I do not claim to have written every line independently. I report only checks actually performed and acknowledge any verification that remains incomplete.
