@@ -6,7 +6,7 @@
   <title>
    From SVG to interactive data · COS30045
   </title>
-  <link href="shared/base.css?v=3" rel="stylesheet"/>
+  <link href="shared/base.css?v=5" rel="stylesheet"/>
   <link href="data:," rel="icon"/>
   <meta content="COS30045 Demonstration 2: SVG drawing, D3 charts and coordinated TV energy exploration. Teaching snapshots with sources, accessible tables and methods." name="description"/>
  </head>
@@ -28,16 +28,16 @@
      </span>
     </a>
     <nav aria-label="Exercises">
-     <a href="Lab-4/index.html">
+     <a href="../../Lab/Lab-4/index.html">
       01 / SVG house
      </a>
-     <a href="Lab-4/bar.html">
+     <a href="../../Lab/Lab-4/bar.html">
       02 / Bar chart
      </a>
-     <a href="Lab-5/index.html">
+     <a href="../../Lab/Lab-5/index.html">
       03 / Multi-chart
      </a>
-     <a href="Lab-6/index.html">
+     <a href="../../Lab/Lab-6/index.html">
       04 / Interactivity
      </a>
     </nav>
@@ -64,7 +64,7 @@
      </p>
     </div>
     <div class="hero-visual">
-     <img alt="SVG house constructed from geometric primitives" height="440" src="Lab-4/house.svg" width="720"/>
+     <img alt="SVG house constructed from geometric primitives" height="440" src="../../Lab/Lab-4/house.svg" width="720"/>
      <p>
       <span>
        01 / THE BUILDING BLOCKS
@@ -81,7 +81,7 @@
       01 / SVG
      </span>
      <strong>
-      A house in coordinates ↗
+      A house in coordinates ↓
      </strong>
      <small>
       Shapes, groups &amp; transformations
@@ -92,7 +92,7 @@
       02 / COMPARISON
      </span>
      <strong>
-      Registrations by brand ↗
+      Registrations by brand ↓
      </strong>
      <small>
       Binding, scales &amp; labels
@@ -103,7 +103,7 @@
       03 / PERSPECTIVES
      </span>
      <strong>
-      Three ways to read data ↗
+      Three ways to read data ↓
      </strong>
      <small>
       Bars, lines &amp; proportions
@@ -114,7 +114,7 @@
       04 / EXPLORATION
      </span>
      <strong>
-      Find a different view ↗
+      Find a different view ↓
      </strong>
      <small>
       Coordinated filters &amp; tooltips
@@ -239,7 +239,7 @@
       View the initial version
      </summary>
      <figure id="house-initial">
-      <img alt="Initial house with grey walls and a red roof, before adding the path, tree and fence" height="440" src="Lab-4/house-before.svg" width="720"/>
+      <img alt="Initial house with grey walls and a red roof, before adding the path, tree and fence" height="440" src="../../Lab/Lab-4/house-before.svg" width="720"/>
       <figcaption>
        The initial version is preserved in house-before.svg.
       </figcaption>
@@ -448,7 +448,7 @@
       View the data table and download CSV
      </summary>
      <p>
-      <a download="" href="Lab-4/data/tvBrandCount.csv">
+      <a download="" href="../../Lab/Lab-4/data/tvBrandCount.csv">
        tvBrandCount.csv
       </a>
      </p>
@@ -464,7 +464,7 @@
      </summary>
      <p>
       Open the preserved practice example:
-      <a href="Lab-4/practice.html">
+      <a href="../../Lab/Lab-4/practice.html">
        select, style, append a paragraph and a rectangle
       </a>
       . The practice code has its own page so it does not add extra shapes to the final chart.
@@ -487,6 +487,9 @@
     </div>
     <div class="chapter-grid">
      <article class="chart-panel">
+      <p class="panel-kicker">
+       Comparison
+      </p>
       <h3>
        How does mean annual energy compare at 55 inches?
       </h3>
@@ -512,6 +515,9 @@
       </p>
      </article>
      <article class="chart-panel">
+      <p class="panel-kicker">
+       Proportion
+      </p>
       <h3>
        What share of registrations belongs to each size group?
       </h3>
@@ -539,6 +545,9 @@
       </p>
      </article>
      <article class="chart-panel wide">
+      <p class="panel-kicker">
+       Trend
+      </p>
       <h3>
        How wholesale spot prices changed over time
       </h3>
@@ -583,7 +592,12 @@
      </span>
     </div>
     <div class="filter-toolbar">
-     <div aria-label="Select screen technology" class="filters" id="filters" role="group">
+     <div class="filter-group">
+      <p aria-hidden="true" class="toolbar-label">
+       Screen technology
+      </p>
+      <div aria-label="Select screen technology" class="filters" id="filters" role="group">
+     </div>
      </div>
      <p aria-atomic="true" aria-live="polite" class="status" id="selection-status" role="status">
       Loading TV data…
@@ -591,6 +605,9 @@
     </div>
     <div class="chapter-grid">
      <article class="chart-panel">
+      <p class="panel-kicker">
+       Distribution
+      </p>
       <h3>
        Annual energy distribution
       </h3>
@@ -610,6 +627,9 @@
       </details>
      </article>
      <article class="chart-panel">
+      <p class="panel-kicker">
+       Relationship
+      </p>
       <h3>
        Star rating and annual energy
       </h3>
@@ -662,35 +682,35 @@
      AI declaration · 4
     </a>
     <a href="output/pdf/GenAI-Declaration_Exercise-5.pdf">
-     5
+     AI declaration · 5
     </a>
     <a href="output/pdf/GenAI-Declaration_Exercise-6.pdf">
-     6
+     AI declaration · 6
     </a>
    </p>
   </footer>
   <!-- Load local D3 first, shared helpers second, then exercise scripts. Lab 6 loads its CSV last. -->
   <script src="shared/d3.v7.min.js">
   </script>
-  <script src="shared/chart.js?v=2">
+  <script src="shared/chart.js?v=3">
   </script>
-  <script src="Lab-4/bar-chart.js?v=2">
+  <script src="../../Lab/Lab-4/bar-chart.js?v=3">
   </script>
-  <script src="Lab-5/bar-chart.js?v=2">
+  <script src="../../Lab/Lab-5/bar-chart.js?v=3">
   </script>
-  <script src="Lab-5/line-chart.js?v=2">
+  <script src="../../Lab/Lab-5/line-chart.js?v=3">
   </script>
-  <script src="Lab-5/donut-chart.js?v=2">
+  <script src="../../Lab/Lab-5/donut-chart.js?v=3">
   </script>
-  <script src="Lab-6/shared-constants.js?v=2">
+  <script src="../../Lab/Lab-6/shared-constants.js?v=3">
   </script>
-  <script src="Lab-6/histogram.js?v=2">
+  <script src="../../Lab/Lab-6/histogram.js?v=3">
   </script>
-  <script src="Lab-6/scatterplot.js?v=2">
+  <script src="../../Lab/Lab-6/scatterplot.js?v=4">
   </script>
-  <script src="Lab-6/interactions.js?v=2">
+  <script src="../../Lab/Lab-6/interactions.js?v=3">
   </script>
-  <script src="Lab-6/load-data.js?v=2">
+  <script src="../../Lab/Lab-6/load-data.js?v=3">
   </script>
  </body>
 </html>

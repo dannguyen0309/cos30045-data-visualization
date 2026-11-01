@@ -6,10 +6,14 @@ Repository layout:
 
 ```text
 Assignments/Demonstration-1/   October-snapshot explorer and KNIME analysis
+Assignments/Demonstration-2/   SVG and interactive D3 assessment website
 Lab/
   Lab-1/          Cleaning, brand counts and annotated KNIME export
   Lab-2/          Size/technology exploration and annotated KNIME export
   Lab-3/          February-snapshot data story and storyboard
+  Lab-4/          SVG house and brand bars
+  Lab-5/          Multi-chart exercises
+  Lab-6/          Coordinated filters and scatterplot tooltips
 ```
 
 Lab 1/2 node annotations are concise single lines. Their `.knwf` exports include
@@ -90,3 +94,14 @@ python Assignments/Demonstration-1/scripts/sync_knime_data.py
 
 For Vercel, set Root Directory to `Assignments/Demonstration-1/dashboard`, Application Preset
 to Vite, Build Command to `npm run build`, and Output Directory to `dist`.
+
+## Demonstration 2
+
+See [Demonstration 2](Assignments/Demonstration-2/README.md) for the shared website, submission links, declarations and verification. Lab 4-6 keep the canonical exercise code; the assessment build assembles those sources with shared assets.
+
+```powershell
+node Assignments/Demonstration-2/scripts/build_site.cjs
+python -m http.server 8005 --bind 127.0.0.1 --directory Assignments/Demonstration-2/dist
+```
+
+Live website: https://cos30045-demonstration-2.vercel.app/

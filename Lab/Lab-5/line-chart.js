@@ -17,11 +17,16 @@ Chart.csv(new URL('data/ARE_Spot_Prices.csv',document.currentScript.src),['Year'
     // The final true argument formats year ticks as integers instead of decimal numbers.
     Chart.axes(c,x,y,'Year','Wholesale spot price (AUD/MWh)',true);
     // Bind the entire series to one path; the line generator calculates its SVG coordinates.
-    c.g.selectAll('path.price-line').data([data]).join('path').attr('class','price-line').attr('fill','none').attr('stroke','#146b78').attr('stroke-width',2)
+    c.g.selectAll('path.price-line').data([data]).join('path').attr('class','price-line').attr('fill','none').attr('stroke','#0f6b78').attr('stroke-width',2.5)
       // Start a new segment at a year gap instead of drawing a line across missing years.
       .attr('d',d3.line().defined((d,i)=>i===0||d.year===data[i-1].year+1).x(d=>x(d.year)).y(d=>y(d.price)));
     // Bind one circle to each observed year so individual measurements remain visible.
-    c.g.selectAll('circle').data(data,d=>d.year).join('circle').attr('r',4).attr('cx',d=>x(d.year)).attr('cy',d=>y(d.price)).attr('fill','#146b78')
+    // Mark the highest observation so the takeaway below the chart can be checked at a glance.
+    const peak=d3.greatest(data,d=>d.price);
+    c.g.selectAll('circle').data(data,d=>d.year).join('circle').attr('r',d=>d===peak?6:4).attr('cx',d=>x(d.year)).attr('cy',d=>y(d.price)).attr('fill',d=>d===peak?'#b9500f':'#0f6b78')
       .selectAll('title').data(d=>[d]).join('title').text(d=>`${d.year}: ${d.price} AUD/MWh`);
+    // Direct label for the peak; anchor it to the right edge when the peak is near the plot boundary.
+    const nearEdge=peak&&x(peak.year)>c.w-40;
+    c.g.selectAll('text.peak-label').data(peak?[peak]:[]).join('text').attr('class','peak-label').attr('x',d=>x(d.year)+(nearEdge?8:0)).attr('y',d=>y(d.price)-12).attr('text-anchor',nearEdge?'end':'middle').text(d=>`${d.year}: ${d.price.toFixed(1)}`);
   });
 }).catch(e=>Chart.error('#price-status',e));

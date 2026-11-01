@@ -13,6 +13,8 @@ function drawHistogram(data) {
     .attr('data-count',d=>d.length).attr('data-x0',d=>d.x0).attr('data-x1',d=>d.x1)
     // Convert each interval to pixel width and leave a one-pixel gap between bars.
     .attr('x',d=>x(d.x0)+.5).attr('width',d=>Math.max(0,x(d.x1)-x(d.x0)-1));
+  // Tint the bars with the selected technology colour; All keeps the default accent colour.
+  bars.style('fill',TV.colors[TV.selected]||null);
   // Cancel an unfinished animation before starting the latest filter update.
   bars.interrupt().transition().duration(TV.duration()).attr('y',d=>y(d.length)).attr('height',d=>c.h-y(d.length));
   // Each rectangle also exposes its interval and frequency as a native SVG title.

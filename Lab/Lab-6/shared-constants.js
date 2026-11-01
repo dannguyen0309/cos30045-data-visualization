@@ -1,7 +1,7 @@
 // Shared state connects the loader, charts and controls without loading the CSV twice.
 const TV = {
   // Use the same technology colours for scatterplot points and legend entries.
-  colors:{LCD:'#24689b',LED:'#a14b13',OLED:'#78529b'},
+  colors:{LCD:'#0b5f9a',LED:'#d1570a',OLED:'#8b3f8f'},
   // Disable animation when the user requests reduced motion; otherwise use 220 ms.
   duration:()=>matchMedia('(prefers-reduced-motion: reduce)').matches?0:220,
   // data holds all valid records; visible holds the selected subset; domains are set once.

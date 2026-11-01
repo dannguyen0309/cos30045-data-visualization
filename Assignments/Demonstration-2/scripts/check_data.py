@@ -6,7 +6,8 @@ import json
 import math
 from pathlib import Path
 
-LAB=Path(__file__).resolve().parents[1]
+ROOT=Path(__file__).resolve().parents[1]
+LAB=ROOT.parents[1]/'Lab'
 def read(path):
     with path.open(encoding='utf-8-sig',newline='') as f:return list(csv.DictReader(f))
 def main():
@@ -43,7 +44,7 @@ def main():
     state_columns=['Queensland ($ per megawatt hour)','New South Wales ($ per megawatt hour)','Victoria ($ per megawatt hour)','South Australia ($ per megawatt hour)']
     for r in price:assert math.isclose(float(r['Average Price (notTas-Snowy)']),sum(float(r[c]) for c in state_columns)/4)
     tv=read(LAB/'Lab-6/data/Ex6_TVdata_withStar.csv')
-    assert (LAB/'Ex6_TVdata_withStar.csv').read_bytes()==(LAB/'Lab-6/data/Ex6_TVdata_withStar.csv').read_bytes()
+    # The canonical Exercise 6 input stays in its lab data directory.
     for r in tv:
         for column in ['screenSize','star','energyConsumption']:
             assert r[column].strip() and math.isfinite(float(r[column])) and float(r[column])>=0
@@ -55,8 +56,8 @@ def main():
         'files_sha256':{str(p.relative_to(LAB)):hashlib.sha256(p.read_bytes()).hexdigest() for p in [LAB/'Lab-4/data/tvBrandCount.csv',LAB/'Lab-5/data/ARE_Spot_Prices.csv',LAB/'Lab-6/data/Ex6_TVdata_withStar.csv']},
         'pending':pending,'note':'Independent calculations verify exports; they do not replace KNIME execution evidence.'
     }
-    (LAB/'evidence').mkdir(exist_ok=True)
-    (LAB/'evidence/data-checks.json').write_text(json.dumps(report,indent=2),encoding='utf-8')
+    (ROOT/'evidence').mkdir(exist_ok=True)
+    (ROOT/'evidence/data-checks.json').write_text(json.dumps(report,indent=2),encoding='utf-8')
     print(json.dumps(report,indent=2))
     if pending:raise SystemExit('Pending: '+', '.join(pending))
 if __name__=='__main__':main()

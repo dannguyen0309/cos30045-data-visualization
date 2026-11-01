@@ -5,11 +5,11 @@ Chart.csv(new URL('data/sizeCounts.csv',document.currentScript.src),['screensize
   data.sort((a,b)=>a.group.localeCompare(b.group));
   if(data.some(d=>!d.group || !Number.isInteger(d.count) || d.count<0)) throw new Error('Invalid size group or count');
   // The registration total is the denominator for every percentage.
-  const total=d3.sum(data,d=>d.count), colors=['#146b78','#ad5312','#73549c'];
+  const total=d3.sum(data,d=>d.count), colors=['#7fb2bd','#2f8796','#0c4c5a'];
   document.querySelector('#size-status').textContent=`Total ${total.toLocaleString('en-AU')} registrations. Small ≤43; Medium 44–65; Large ≥66 inches, after rounding.`;
   // Percentages are count / total * 100; keep the raw counts available as well.
   Chart.table('#size-table','Registrations by screen-size group',['Group','Count','Share'],data.map(d=>[d.group,d.count,`${(100*d.count/total).toFixed(1)}%`]));
-  d3.select('#size-legend').selectAll('li').data(data).join('li').text((d,i)=>`${i+1}. ${d.group}: ${d.count} (${(100*d.count/total).toFixed(1)}%)`).style('border-left',(d,i)=>`12px solid ${colors[i]}`).style('padding-left','8px');
+  d3.select('#size-legend').selectAll('li').data(data).join('li').text((d,i)=>`${i+1}. ${d.group.replace(/^\d+\.\s*/,'')}: ${d.count} (${(100*d.count/total).toFixed(1)}%)`).style('--swatch',(d,i)=>colors[i]);
   Chart.responsive('#donut-chart',()=>{
     // Choose a radius that fits the current container width, including on mobile.
     const c=Chart.frame('#donut-chart',320,0,0),r=Math.min(c.width,290)/2-12;

@@ -1,0 +1,39 @@
+{
+  "date": "2026-11-01",
+  "hover": {
+    "hidden": false,
+    "status": "philips 65OLED789/98 · OLED · 65 inch · 4.5 stars · 493 kWh/year",
+    "text": "philips 65OLED789/98 · OLED · 65 inch · 4.5 stars · 493 kWh/year"
+  },
+  "mobile": {
+    "chart": {
+      "bottom": 1001.7361145019532,
+      "height": 225.63888549804688,
+      "left": 32.88888931274414,
+      "right": 326.2222328186035,
+      "top": 776.0972290039062,
+      "width": 293.3333435058594,
+      "x": 32.88888931274414,
+      "y": 776.0972290039062
+    },
+    "hidden": false,
+    "label": {
+      "bottom": 924.4722366333008,
+      "height": 64.77777862548828,
+      "left": 66.22222137451172,
+      "right": 326.2222213745117,
+      "top": 859.6944580078125,
+      "width": 260,
+      "x": 66.22222137451172,
+      "y": 859.6944580078125
+    },
+    "width": 376
+  },
+  "checks": [
+    "Pointer enter shows bound record and matches persistent status",
+    "Pointer leave hides floating tooltip",
+    "Enter reveals floating tooltip",
+    "Escape hides floating tooltip",
+    "All reset retains one hidden tooltip and 4233 points"
+  ]
+}

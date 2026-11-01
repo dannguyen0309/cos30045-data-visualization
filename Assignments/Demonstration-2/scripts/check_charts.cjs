@@ -3,8 +3,9 @@ const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
 const d3 = require('../shared/d3.v7.min.js');
-const lab = path.resolve(__dirname,'..');
-const source = p=>fs.readFileSync(path.join(lab,p),'utf8');
+const root = path.resolve(__dirname,'..');
+const lab = path.resolve(root,'../../Lab');
+const source = p=>fs.readFileSync(path.join(p.startsWith('shared/')?root:lab,p),'utf8');
 const header='brand,model,screenSize,screenTech,star,energyConsumption\n';
 
 async function load(csv) {

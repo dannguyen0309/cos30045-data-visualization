@@ -35,3 +35,11 @@ PRESENTATION_SCRIPT_VI.md
 /download_canvas_pdfs.py
 /image.png
 /requirements.txt
+# Lab root keeps only the six exercise folders in Git; other files stay local.
+/Lab/*
+!/Lab/Lab-1/
+!/Lab/Lab-2/
+!/Lab/Lab-3/
+!/Lab/Lab-4/
+!/Lab/Lab-5/
+!/Lab/Lab-6/

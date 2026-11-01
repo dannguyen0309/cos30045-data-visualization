@@ -62,11 +62,13 @@ const Chart = {
   table(selector, caption, headers, rows) {
     const host = d3.select(selector);
     const table = host.selectAll('table').data([null]).join('table');
+    // A column counts as numeric when its first value looks like a number or percentage.
+    const numeric = headers.map((_, i) => rows.length > 0 && /^-?[\d.,]+%?$/.test(String(rows[0][i])));
     table.selectAll('caption').data([caption]).join('caption').text(d=>d);
     table.selectAll('thead').data([null]).join('thead').selectAll('tr').data([null]).join('tr')
-      .selectAll('th').data(headers).join('th').attr('scope','col').text(d=>d);
+      .selectAll('th').data(headers).join('th').attr('scope','col').classed('num',(d,i)=>numeric[i]).text(d=>d);
     table.selectAll('tbody').data([null]).join('tbody').selectAll('tr').data(rows).join('tr')
-      .selectAll('td').data(d=>d).join('td').text(d=>d);
+      .selectAll('td').data(d=>d).join('td').classed('num',(d,i)=>numeric[i]).text(d=>d);
   },
   // Redraw only when width changes; height changes must not trigger a resize loop.
   responsive(selector, render) {

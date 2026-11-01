@@ -65,3 +65,35 @@ Still manual: a genuine screenshot of the revised drawing together with the expa
 - Actual public DOM results: `deployment-checks.json`.
 - Re-ran data verification and chart assertions: PASS.
 - No Canvas upload or submission was performed. Real Developer Tools evidence remains manual; 200% zoom and screen reader checks remain unverified.
+
+
+## Imported designer ZIP integration - 1 November 2026
+
+- Integrated `Demo-2-redesigned.zip` supplied by the student. CSVs, loaders, original SVGs, D3 and deployment configuration were byte-identical; only changed website files and supplied after-redesign image were imported. Original KNIME folders and course evidence were preserved.
+- External design report is attributed in `REDESIGN-CHANGES.md`. Its claims are not our independent test results. The external AI tool/model was not identified. Existing declaration PDFs predate this import; review them to include the additional tool before submission.
+- Independent checks passed: Python data verification, Node chart assertions, authored JavaScript syntax and built-site reference/ID checks (7 HTML pages, 125 references).
+- Edge local browser: all 7 pages at observed 376 CSS px (browser scaling), no horizontal page overflow, no role-alert errors. Combined page: 6 charts, 4,233 scatterplot points and 25 brand bars.
+- Seven repeated technology filters retained one SVG per chart, fixed bin boundaries and all axis tick sets. Histogram totals equalled point counts: LCD 455, LED 3,492, OLED 286, All 4,233.
+- Enter activated OLED. Record selector 171 displayed metz 65MXD9500A, OLED, 65 inch, 4 stars, 586 kWh/year. Tooltip stayed within the mobile viewport. No console warnings/errors during interaction checks.
+- Checked 2022 peak label 144.5, 27 line observations, numeric Count/Share headers and absence of duplicate legend numbering.
+- Captured and visually inspected the actual desktop homepage: `website-integrated-redesign.png`. DOM results: `imported-redesign-checks.json`.
+- Source changes remain local, with no commit, push, deployment or Canvas submission for this import. Physical-device, screen-reader and 200% zoom checks were not performed.
+
+
+## Floating scatterplot tooltip - 1 November 2026
+
+- Added a single floating text label on pointer enter, focus and click. The persistent accessible status and record selector remain available. The label is hidden on pointer leave, blur, Escape and chart redraw/filter changes.
+- Verified real pointer hover in Edge: Philips 65OLED789/98, OLED, 65 inch, 4.5 stars, 493 kWh/year; floating text matched the persistent status. Pointer leave hid it.
+- Enter showed the label and Escape hid it. At observed 376 CSS px, the tooltip stayed horizontally within the chart (right edge 326.22 px).
+- All reset retained exactly one hidden floating label and 4,233 points. The combined homepage also displayed the tooltip with 286 OLED points.
+- JavaScript syntax, static reference checks and existing chart assertions passed. Actual DOM results: `scatter-tooltip-checks.json`.
+- Changes remain local; no deployment performed.
+
+
+## Repository reorganisation - 1 November 2026
+
+- Git tracks only Lab 1-6 below `Lab/`. Other local Lab-root files are retained on disk and ignored. No local downloads or workflow archives were deleted.
+- Shared assessment assets, declarations, evidence and the combined pages now live in `Assignments/Demonstration-2/`. Lab 4-6 remain the canonical chart sources; the build assembles them without duplicating source code.
+- Updated direct source-page links and normalised build output paths. Source reference check passed: 7 pages and 114 local references. Public build check passed: 7 pages and 125 references. Independent data checks and chart assertions passed from their new locations.
+- The build reads only tracked lab sources and assessment assets. Original CSV/workflow files at Lab root are no longer required by the build or data check.
+- The production project keeps its domain and route paths. Root Directory is `Assignments/Demonstration-2`, with outside-root source files included. Automatic skipping for root-only changes is disabled so Lab 4-6 changes can trigger builds.

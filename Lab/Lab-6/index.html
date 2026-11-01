@@ -6,7 +6,7 @@
   <title>
    Explore TVs with filters · COS30045
   </title>
-  <link href="../shared/base.css?v=3" rel="stylesheet"/>
+  <link href="../../Assignments/Demonstration-2/shared/base.css?v=5" rel="stylesheet"/>
   <link href="data:," rel="icon"/>
   <meta content="COS30045 Demonstration 2: SVG drawing, D3 charts and coordinated TV energy exploration. Teaching snapshots with sources, accessible tables and methods." name="description"/>
  </head>
@@ -16,7 +16,7 @@
   </a>
   <header>
    <div class="header-inner">
-    <a class="brand" href="../index.html">
+    <a class="brand" href="../../Assignments/Demonstration-2/index.html">
      <span aria-hidden="true" class="brand-mark">
       dv.
      </span>
@@ -77,7 +77,12 @@
      </span>
     </div>
     <div class="filter-toolbar">
-     <div aria-label="Select screen technology" class="filters" id="filters" role="group">
+     <div class="filter-group">
+      <p aria-hidden="true" class="toolbar-label">
+       Screen technology
+      </p>
+      <div aria-label="Select screen technology" class="filters" id="filters" role="group">
+     </div>
      </div>
      <p aria-atomic="true" aria-live="polite" class="status" id="selection-status" role="status">
       Loading TV data…
@@ -85,6 +90,9 @@
     </div>
     <div class="chapter-grid">
      <article class="chart-panel">
+      <p class="panel-kicker">
+       Distribution
+      </p>
       <h3>
        Annual energy distribution
       </h3>
@@ -104,6 +112,9 @@
       </details>
      </article>
      <article class="chart-panel">
+      <p class="panel-kicker">
+       Relationship
+      </p>
       <h3>
        Star rating and annual energy
       </h3>
@@ -149,34 +160,34 @@
     COS30045 · Nguyen Ngoc Lam Dan · 104992198
    </p>
    <p>
-    <a href="../methodology.html">
+    <a href="../../Assignments/Demonstration-2/methodology.html">
      Sources &amp; methods
     </a>
-    <a href="../output/pdf/GenAI-Declaration_Exercise-4.pdf">
+    <a href="../../Assignments/Demonstration-2/output/pdf/GenAI-Declaration_Exercise-4.pdf">
      AI declaration · 4
     </a>
-    <a href="../output/pdf/GenAI-Declaration_Exercise-5.pdf">
-     5
+    <a href="../../Assignments/Demonstration-2/output/pdf/GenAI-Declaration_Exercise-5.pdf">
+     AI declaration · 5
     </a>
-    <a href="../output/pdf/GenAI-Declaration_Exercise-6.pdf">
-     6
+    <a href="../../Assignments/Demonstration-2/output/pdf/GenAI-Declaration_Exercise-6.pdf">
+     AI declaration · 6
     </a>
    </p>
   </footer>
   <!-- Load local D3 first, shared helpers second, then exercise scripts. Lab 6 loads its CSV last. -->
-  <script src="../shared/d3.v7.min.js">
+  <script src="../../Assignments/Demonstration-2/shared/d3.v7.min.js">
   </script>
-  <script src="../shared/chart.js?v=2">
+  <script src="../../Assignments/Demonstration-2/shared/chart.js?v=3">
   </script>
-  <script src="../Lab-6/shared-constants.js?v=2">
+  <script src="../Lab-6/shared-constants.js?v=3">
   </script>
-  <script src="../Lab-6/histogram.js?v=2">
+  <script src="../Lab-6/histogram.js?v=3">
   </script>
-  <script src="../Lab-6/scatterplot.js?v=2">
+  <script src="../Lab-6/scatterplot.js?v=4">
   </script>
-  <script src="../Lab-6/interactions.js?v=2">
+  <script src="../Lab-6/interactions.js?v=3">
   </script>
-  <script src="../Lab-6/load-data.js?v=2">
+  <script src="../Lab-6/load-data.js?v=3">
   </script>
  </body>
 </html>

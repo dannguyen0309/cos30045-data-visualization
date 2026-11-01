@@ -28,7 +28,7 @@ function populateFilters() {
   const technologies=[...new Set(TV.data.map(d=>d.screenTech))].sort();
   // Build native buttons and pass the clicked button's bound technology to updateTV.
   d3.select('#filters').selectAll('button').data(['All',...technologies]).join('button').attr('type','button').text(d=>d).on('click',(_,d)=>updateTV(d));
-  d3.select('#tech-legend').selectAll('li').data(technologies).join('li').text(d=>d).style('border-left',d=>`12px solid ${TV.colors[d]||'#465e6d'}`).style('padding-left','8px');
+  d3.select('#tech-legend').selectAll('li').data(technologies).join('li').text(d=>d).style('--swatch',d=>TV.colors[d]||'#465e6d');
   // HTML option values are strings; convert the selected id back to a number.
   document.querySelector('#record-select').addEventListener('change',event=>showTV(TV.visible.find(d=>d.id===Number(event.target.value))));
   document.querySelector('#records-table').closest('details').addEventListener('toggle',event=>{if(event.target.open)drawRecordsTable();});
