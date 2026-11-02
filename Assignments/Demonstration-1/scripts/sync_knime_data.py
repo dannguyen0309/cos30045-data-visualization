@@ -60,10 +60,11 @@ def main():
     if any((row["Brand_Reg"], row["Model_No"], row["Screen_Tech"]) not in keys for row in standby):
         raise ValueError("Standby export contains models absent from cleaned_tv.csv")
 
-    for directory in (ROOT / "dashboard" / "data", ROOT / "dashboard" / "public" / "data", ROOT / "dashboard" / "dist" / "data"):
-        directory.mkdir(parents=True, exist_ok=True)
-        for name in REQUIRED:
-            shutil.copyfile(SOURCE / name, directory / name)
+    # Vite serves public/data directly and copies it into dist during the build.
+    directory = ROOT / "dashboard" / "public" / "data"
+    directory.mkdir(parents=True, exist_ok=True)
+    for name in REQUIRED:
+        shutil.copyfile(SOURCE / name, directory / name)
     print(f"Synced KNIME exports: {len(cleaned)} TVs, {len(tables['brand_summary.csv'])} brands, {len(standby)} standby records")
 
 

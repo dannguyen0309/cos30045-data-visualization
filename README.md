@@ -1,78 +1,33 @@
-# COS30045-Data-Visualization
+# COS30045 - Data Visualisation
 
-Course assignments for COS30045 Data Visualisation.
+Course exercises and assessment websites. Each exercise keeps its source code and data; each assessment keeps its shared assets, build instructions and evidence.
 
-Repository layout:
+## Repository structure
 
 ```text
-Assignments/Demonstration-1/   October-snapshot explorer and KNIME analysis
-Assignments/Demonstration-2/   SVG and interactive D3 assessment website
+Assignments/
+  Demonstration-1/     October TV explorer, KNIME analysis and React dashboard
+  Demonstration-2/     SVG/D3 website, shared assets, declarations and evidence
 Lab/
-  Lab-1/          Cleaning, brand counts and annotated KNIME export
-  Lab-2/          Size/technology exploration and annotated KNIME export
-  Lab-3/          February-snapshot data story and storyboard
-  Lab-4/          SVG house and brand bars
-  Lab-5/          Multi-chart exercises
-  Lab-6/          Coordinated filters and scatterplot tooltips
+  Lab-1/              KNIME cleaning and brand counts
+  Lab-2/              KNIME size and technology exploration
+  Lab-3/              February TV data story and storyboard
+  Lab-4/              SVG house and horizontal bar chart
+  Lab-5/              Vertical bars, line chart and donut chart
+  Lab-6/              Histogram, scatterplot, filters and tooltip
 ```
 
-Lab 1/2 node annotations are concise single lines. Their `.knwf` exports include
-source data and saved EXECUTED states, verified after import and Execute all.
-Import and run Execute all to reproduce the results. Lab 2 keeps the verified 20-bin Histogram. The 10/30-bin experiments were
-not performed, by the student's choice.
+- [Demonstration 1](Assignments/Demonstration-1/README.md): development, data processing and deployment instructions.
+- [Demonstration 2](Assignments/Demonstration-2/README.md): build, verification, sources and declarations.
+- [Lab 1](Lab/Lab-1/DataViz-Exercise-1/README.md), [Lab 2](Lab/Lab-2/Exercise-2/README.md) and [Lab 3](Lab/Lab-3/README.md): exercise-specific notes.
 
-## Labs
+Demo 1 uses the 4 October 2026 snapshot, medians and four size bands. Lab 1-3 and Demo 2 use their supplied February teaching data and their documented grouping rules. Product registrations are not sales or household consumption. Keep original datasets and real KNIME processing evidence.
 
-- [Lab 1](Lab/Lab-1/DataViz-Exercise-1/README.md): KNIME cleaning, brand counts and the [exported workflow](Lab/Lab-1/Exercise-1_NguyenNgocLamDan.knwf).
-- [Lab 2](Lab/Lab-2/Exercise-2/README.md): KNIME size/technology exploration and the [exported workflow](Lab/Lab-2/Exercise-2_NguyenNgocLamDan.knwf).
-- [Lab 3](Lab/Lab-3/README.md): separate February-snapshot data story, three static charts and a visual storyboard.
+The tutor instructed use of this personal repository. The critique assignment and its existing Git configuration remain separate.
 
-The tutor has instructed use of this personal repository. Lab 3 is separate from
-the broader Demonstration 1 explorer, which brings together methods from Labs
-1–3 with its October snapshot.
+## Quick start
 
-Run the Lab 3 story from the repository root:
-
-```powershell
-python -m http.server 8003 --bind 127.0.0.1 --directory Lab/Lab-3
-```
-
-## Demonstration 1
-
-- [Dashboard](Assignments/Demonstration-1/dashboard/README.md): TV energy visualisation website.
-- [KNIME workflow](Assignments/Demonstration-1/Demo-1_NguyenNgocLamDan.knwf): importable workflow archive.
-- `Assignments/Demonstration-1/Demo-1/`: unpacked KNIME workflow and exported data.
-- `Assignments/Demonstration-1/tv_2026_10_04.csv`: source dataset snapshot, 04 October 2026.
-- [Visual storyboard](Assignments/Demonstration-1/dashboard/public/storyboard.html).
-
-## Data Story
-
-The explorer is for Australian TV shoppers comparing estimated annual energy
-between similar-sized models. Its sequence moves from catalogue context to
-screen size, technology within size bands, and individual TVs. The closing
-guidance connects those comparisons to the official Energy Rating label.
-The reading sequence is shown in the
-[visual storyboard](Assignments/Demonstration-1/dashboard/public/storyboard.html).
-
-## About the data
-
-The source is the Australian Government Energy Rating registration CSV dated
-**4 October 2026**. KNIME filters Australian Available registrations and expiry
-status, standardises brands, converts units and exports chart data: 4,839 records
-remain from 5,030 source rows. These are public product registrations, not sales,
-retailer stock or household usage. The analysis describes this snapshot and does not establish causal relationships.
-
-Standalone Lab 3 uses the **15 February 2026** teaching snapshot, mean energy and
-three size groups. Demo 1 uses its October snapshot, median energy and four size
-bands. The sites share methods, while keeping their figures separate.
-
-## AI Declaration
-
-See [GenAI-Declaration_Demo-1.md](Assignments/Demonstration-1/GenAI-Declaration_Demo-1.md).
-
-## Development
-
-Run the website from the repository root:
+Demo 1:
 
 ```powershell
 cd Assignments/Demonstration-1/dashboard
@@ -80,28 +35,17 @@ npm ci
 npm run dev
 ```
 
-Validate dashboard data from the repository root:
-
-```powershell
-node Assignments/Demonstration-1/scripts/check_dashboard_data.mjs
-```
-
-After executing and saving the KNIME workflow, synchronise its exports:
-
-```powershell
-python Assignments/Demonstration-1/scripts/sync_knime_data.py
-```
-
-For Vercel, set Root Directory to `Assignments/Demonstration-1/dashboard`, Application Preset
-to Vite, Build Command to `npm run build`, and Output Directory to `dist`.
-
-## Demonstration 2
-
-See [Demonstration 2](Assignments/Demonstration-2/README.md) for the shared website, submission links, declarations and verification. Lab 4-6 keep the canonical exercise code; the assessment build assembles those sources with shared assets.
+Demo 2, from the repository root:
 
 ```powershell
 node Assignments/Demonstration-2/scripts/build_site.cjs
 python -m http.server 8005 --bind 127.0.0.1 --directory Assignments/Demonstration-2/dist
 ```
 
-Live website: https://cos30045-demonstration-2.vercel.app/
+Live Demo 2: https://cos30045-demonstration-2.vercel.app/
+
+## Local files
+
+`.local/` holds archived local material, including the old Lab-root website and original downloads under `.local/legacy-lab/`. Those files remain on this computer, outside the active source tree. Previously local-only submission helpers and redesign notes remain local-only.
+
+`tmp/`, `dist/`, dependency folders and KNIME runtime caches are not source code. Regenerate builds with the commands above; regenerate node outputs in KNIME. Do not delete original datasets, workflows, declarations or assessment evidence as part of a build cleanup.
